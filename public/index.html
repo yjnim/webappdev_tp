@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simply Notify</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <header>
+          <h1>Simply Notify</h1>
+          <p><em>A simple application to send notifications to everyone subscribed. It's simple. It's useless. It's simply notify.</em></p>
+        </header>
+        <button id="sign-in">로그인</button>
+        <button id="sign-out">로그아웃</button>
+        <button id="subscribe">구독</button>
+        <button id="unsubscribe">구독취소</button>
+
+        <form id="send-notification-form">
+          <label for="notification-message" class="sr-only">Notification Message</label>
+          <textarea id="notification-message" maxlength="100">알림 보내기</textarea>
+          <button type="submit" aria-label="Send">
+            <img src="./img/send.png" alt="">
+          </button>
+        </form>
+      </main>
+  
+      <footer>
+        <small><a href="">View Source</a></small>
+      </footer>
+    </div>
+
+    <script src="/__/firebase/7.4.0/firebase-app.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-database.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-messaging.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
