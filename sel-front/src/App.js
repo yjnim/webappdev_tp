@@ -1,10 +1,9 @@
 import React from 'react';
 import logo from './img/selab_logo_S.png';
-import page1img from './img/Coding-body-image.jpg'; 
 import './App.css';
 import './navBar.css';
 import './main.css'
-import Slider from 'infinite-react-carousel';
+// import Slider from 'infinite-react-carousel';
 
 //네브바 
 function navBar() {
@@ -65,17 +64,39 @@ function navBar() {
 
 //메인 화면
 function page1() {
+  function goSELab() {
+    var page1 = document.getElementsByClassName("Contents-page1")[0];
+    var page2 = document.getElementsByClassName("Contents-page2")[0];
+    page1.style.display = "none";
+    page2.style.display = "block";
+  }
+
   return (
     <div className="Contents-page1">
       <div className="page1-title">
         <h1>lab(<span className="text-orange">se</span>);</h1>
         <h2>Software Engineering Lab<br/>@HYU ERICA, CSE Dept.</h2>
         <h3>led by asst. prof. Scott Lee<br/>Where Great Software Engineers are made</h3>
+        <div className="page1-q">
+          <p>Which information do you need?</p>
+          <div className="page1-q-div">
+            <button className="page1-q-div-bt" onClick={goSELab}>About SELab</button>
+            <button className="page1-q-div-bt">About Courses</button>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
+//About selab 화면 
+function page2() {
+  return(
+    <div className="Contents-page2">
+      옆으로 넘어가면 이런 페이지가 나온다
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -90,6 +111,7 @@ function App() {
         <div className="App-mainbg">
           {/* 메인 화면 */}
           {page1()}
+          {page2()}
         </div>
 
       </div>

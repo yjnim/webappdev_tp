@@ -11,17 +11,19 @@
 
 .App-mainbg {
   min-height: 90vh;
-  min-width: 100vh;
+  min-width: 100vw;
   padding-top: 10vh;
 }
 
 .Contents-page1 {
-  min-height: 90vh;
+  height: 80vh;
   font-family: 'Exo 2';
   color: white;
   background-image: url('./img/m_31.svg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: 110vh;
   animation-duration: 1.5s;
   animation-name: bgani;
   animation-fill-mode: forwards;
@@ -30,82 +32,72 @@
 @keyframes bgani {
   from {
     opacity: 0;
+    padding-left: 20px;
+    padding-bottom: 20px; 
   }
   to {
     opacity: 1;
+    padding-left: 0px;
+    padding-bottom: 0px; 
   }
 }
 
 .page1-title {
-  padding: 5vh 0 0 10vh;
+  height: 70vh;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page1-title h1 {
-  font-size: 7em;
+  text-align: center;
+  font-size: 12vh;
   margin: 0;
   opacity: 0;
-  position: absolute;
-  top: 32vh;
-  left: 45vh;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: titleh1;
   animation-fill-mode: forwards;
 }
 
 @keyframes titleh1 {
   from { 
-  opacity: 0;
-  position: absolute;
-  top: 31vh;
-  left: 43vh;
+    opacity: 0;
   }
 
   to {
     opacity: 1;
-    position: absolute;
-    top: 32vh;
-    left: 45vh;
   }
 }
 
 .page1-title h2 {
   text-align: center;
-  font-size: 2em;
-  position: absolute;
-  top: 45vh;
-  left: 45vh;
+  font-size: 3vh;
+  margin: 2.5vh 0 0 0;
   opacity: 0;
-  animation-delay: 1s;
-  animation-duration: 1s;
+  animation-delay: 0.3s;
+  animation-duration: 0.5s;
   animation-name: titleh2;
   animation-fill-mode: forwards;
 }
 
 @keyframes titleh2 {
   from { 
-  opacity: 0;
-  position: absolute;
-  top: 44vh;
-  left: 43vh;
+    opacity: 0;
   }
 
   to {
     opacity: 1;
-    position: absolute;
-    top: 45vh;
-    left: 45vh;
   }
 }
 
 .page1-title h3 {
   text-align: center;
-  font-size: 1.4em;
-  position: absolute;
-  top: 60vh;
-  left: 42vh;
+  font-size: 2.2vh;
+  margin: 0.9vh 0 0 0;
   opacity: 0;
-  animation-delay: 2s;
-  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
   animation-name: titleh3;
   animation-fill-mode: forwards;
 }
@@ -113,26 +105,62 @@
 @keyframes titleh3 {
   from { 
   opacity: 0;
-  position: absolute;
-  top: 59vh;
-  left: 40vh;
   }
 
   to {
     opacity: 1;
-    position: absolute;
-    top: 60vh;
-    left: 42vh;
   }
 }
-
-
-
 
 .text-orange {
   color: #eb731e;
 }
 
+.page1-title p {
+  margin: 6vh auto 0 auto;
+  text-align: center;
+  font-size: 3vh;
+}
+
+.page1-q-div {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.page1-q-div-bt {
+  margin: 0 2vh;
+  border: 2px solid #FFFFFF;
+  border-radius: 5vh;
+  width: 16vh;
+  height: 5vh;
+  background-color: #FFFFFF;
+  font-size: 1.6vh;
+  font-family: "Ubuntu";
+  color: rgb(0,171,217);
+}
+
+.page1-q-div-bt:hover {
+  animation-duration: 0.3s;
+  animation-name: button;
+  animation-fill-mode: forwards;
+}
+
+@keyframes button {
+  to {
+    background-color: rgba(255,255,255,0);
+    color: #FFF;
+  }
+}
+
+.page1-q-div-bt:active {
+  outline: none;
+}
+
+.Contents-page2 {
+  height: 80vh;
+  display: none;
+}
 
 
 /* .Carousel {
