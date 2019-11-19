@@ -1,0 +1,20 @@
+.Contents-page2 {
+    height: 80vh;
+    padding-top: 10vh;
+  }
+
+.newdisplay {
+    animation-duration: 0.5s;
+    animation-name: newdisplay;
+}
+
+@keyframes newdisplay {
+    from {
+        opacity: 0;
+        padding-left: 30px;
+    }
+    to {
+        opacity: 1;
+        padding-left: 0;
+    }
+}

@@ -10,6 +10,14 @@
     align-items: center;
   }
   
+  .App-logo {
+    margin-left: 15%;
+  }
+  
+  .App-logo~img {
+    height: 35px;
+  }
+
   .Header-menudiv {
     float: left;
     display: flex;
