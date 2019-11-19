@@ -2,6 +2,9 @@
 
 .App-logo {
   margin-left: 15%;
+}
+
+.App-logo img {
   height: 35px;
 }
 
@@ -159,6 +162,7 @@
 
 .Contents-page2 {
   height: 80vh;
+  padding-top: 10vh;
   display: none;
 }
 

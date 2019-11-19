@@ -4,16 +4,30 @@ import './App.css';
 import './navBar.css';
 import './main.css'
 // import Slider from 'infinite-react-carousel';
+function goMain() {
+  var page1 = document.getElementsByClassName("Contents-page1")[0];
+  var page2 = document.getElementsByClassName("Contents-page2")[0];
+  page1.style.display = "block";
+  page2.style.display = "none";
+}
+
+function goSELab() {
+  var page1 = document.getElementsByClassName("Contents-page1")[0];
+  var page2 = document.getElementsByClassName("Contents-page2")[0];
+  page1.style.display = "none";
+  page2.style.display = "block";
+}
+
 
 //네브바 
 function navBar() {
     return (
       <header className="App-header">
-        <img src={logo} alt="logo" className="App-logo"></img>
+        <a onClick={goMain} className="App-logo"><img src={logo} alt="logo"></img></a>
         <div className="Header-menudiv">
           <ul>
             <li>
-              <a href="#">About SELab</a>
+              <a onClick={goSELab}>About SELab</a>
             </li>
             <li>
               <a href="#">Courses</a>
@@ -64,12 +78,7 @@ function navBar() {
 
 //메인 화면
 function page1() {
-  function goSELab() {
-    var page1 = document.getElementsByClassName("Contents-page1")[0];
-    var page2 = document.getElementsByClassName("Contents-page2")[0];
-    page1.style.display = "none";
-    page2.style.display = "block";
-  }
+
 
   return (
     <div className="Contents-page1">
@@ -91,6 +100,7 @@ function page1() {
 
 //About selab 화면 
 function page2() {
+  
   return(
     <div className="Contents-page2">
       옆으로 넘어가면 이런 페이지가 나온다
