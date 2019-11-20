@@ -1,7 +1,19 @@
 .Contents-page2 {
     height: 80vh;
-    padding-top: 10vh;
+    padding-top: 6vh;
+    width: 80vw;
+    margin: 0 auto;
   }
+
+
+.Lab-list {
+    width: 25%;
+}
+
+.Lab-list ol {
+    list-style-type: none;
+}
+
 
 .newdisplay {
     animation-duration: 0.5s;

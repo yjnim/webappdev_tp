@@ -12,35 +12,43 @@
   
   .App-logo {
     margin-left: 15%;
+    display: flex;
+    align-items: center;
   }
-  
-  .App-logo~img {
+
+  .App-logo img {
     height: 35px;
   }
 
   .Header-menudiv {
+    width: 60vw;
+    min-width: 800px;
     float: left;
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 15%;
+    margin: 0 auto;
   }
   
   .Header-menudiv ul {
     list-style: none;
+    margin: 0;
   }
   
-  .Header-menudiv li {
+  .homeli {
+    float: left;
+    width: 40px;
+  }
+
+  .menuli {
+    float: right;
     font-weight: bold;
-    display: inline;
     border: 0;
     margin-right: 20px;
   }
 
-  .Header-menudiv li a {
+  .menuli a {
     color: white;
   }
 
-  .Header-menudiv li:hover {
+  .menuli:hover {
     animation-duration: 0.5s;
     animation-name: menulihover;
     animation-fill-mode: forwards;
@@ -48,7 +56,6 @@
 
   @keyframes menulihover {
       from {
-          padding-bottom: 0px;
           border: none;
       }
 

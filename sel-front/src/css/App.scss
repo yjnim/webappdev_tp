@@ -1,0 +1,47 @@
+
+.App-container {
+  min-width: 100vh;
+}
+
+.App-mainbg {
+  min-height: 90vh;
+  min-width: 100vw;
+  padding-top: 10vh;
+}
+
+$timing: 400ms;
+
+.trans {
+  width: 100vw;
+  transition: $timing;
+  transition-timing-function: ease;
+
+  &.enter {
+    z-index: 10;
+    opacity: 0;
+
+    &.active,
+    &.done {
+        opacity: 1;
+    }
+  }
+
+  &.exit {
+    z-index: 9;
+
+    &.active,
+    &.done {
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    position: fixed;
+  }
+
+  &.done {
+    position: relative !important;
+    transform: none !important;
+  }
+}
+

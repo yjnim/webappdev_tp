@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import logo from '../img/selab_logo_S.png';
 import '../css/NavBar.css';
 
@@ -29,20 +29,26 @@ class NavBar extends Component {
 
         return (
             <header className="App-header">
-                <Link to="/"><img src={logo} alt="logo" className="App-logo"></img></Link>
+                <Switch>
                 <div className="Header-menudiv">
                 <ul>
-                    <li>
-                    <Link to="/About/Selab">About SELab</Link>
+                    <li className="homeli">
+                    <Link to="/" className="App-logo"><img src={logo} alt="logo" ></img></Link>
                     </li>
-                    <li>
-                    <Link to="/Course/Lecture">Courses</Link>
-                    </li>
-                    <li>
+                    <li className="menuli">
                     <Link to="/Login">Login</Link>
                     </li>
+                    <li className="menuli">
+                    <Link to="/Course/Lecture">Courses</Link>
+                    </li>
+                    <li className="menuli">
+                    <Link to="/About/Selab">About SELab</Link>
+                    </li>
+
+                    
                 </ul>
                 </div>
+                </Switch>
             </header>
         );
     }
