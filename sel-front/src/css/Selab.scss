@@ -7,6 +7,7 @@
     animation-duration: 0.7s;
     font-family: 'Roboto Condensed', sans-serif;
     color: #FFF;
+    display: flex;
   }
 
 @keyframes side-fade-enter {
@@ -110,3 +111,4 @@ $timing: 700ms;
     transform: none !important;
   }
 }
+

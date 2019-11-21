@@ -66,44 +66,6 @@ class Selab extends Component {
           </div>
         </div>
       </Router>
-
-      // <div className="Contents-page2">
-      //   {/* 목차 나타낼 부분 */}
-      //   <div className="Lab-list">
-      //     <ol>
-      //       <li>
-      //         <a name="member" onClick={ RenderContents(this.name) }>
-      //           <img src={ Membericon } className="Lab-list-icon" alt="member icon"></img>
-      //           Members
-      //         </a>
-      //       </li>
-      //       <li>
-      //         <a name="research" onClick={ RenderContents(this.name) }>
-      //           <img src={ Researchicon } className="Lab-list-icon"  alt="research icon"></img>
-      //           Research
-      //         </a>
-      //       </li>
-      //       <li>
-      //         <a name="publication" onClick={ RenderContents(this.name) }>
-      //           <img src={ Publicationicon } className="Lab-list-icon" alt="publication icon"></img>
-      //           Publications
-      //         </a>
-      //       </li>
-      //       <li>
-      //         <a name="contact" onClick={ RenderContents(this.name) }>
-      //           <img src={ Contacticon } className="Lab-list-icon" alt="contact icon"></img>
-      //           Contact
-      //         </a>
-      //       </li>
-      //     </ol>
-      //   </div>
-      //   <div className="Lab-contents">
-      //     { MemberRender() }
-      //     { ResearchRender() }
-      //     { PublicationRender() }
-      //     { ContactRender() }
-      //   </div>
-      // </div>
     );
   }
 }

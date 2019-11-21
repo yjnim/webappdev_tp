@@ -1,0 +1,33 @@
+.Login-div {
+  width: 30vw;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+hr {
+  margin: 15px auto 8vh auto;
+  width: 5vw;
+  height: 3px;
+  border: none;
+  background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+}
+
+.Login-input-div {
+  width: 25vw;
+  height: 7.5vh;
+  margin: 3vh auto 30px auto;
+  padding: 0 2vw;
+  background-color: #FFF;
+  border-radius: 7.5vh;
+  display: flex;
+  align-items: center;
+}
+
+.Login-noti {
+
+}
