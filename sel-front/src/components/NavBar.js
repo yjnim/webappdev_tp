@@ -29,7 +29,6 @@ class NavBar extends Component {
 
         return (
             <header className="App-header">
-                <Switch>
                 <div className="Header-menudiv">
                 <ul>
                     <li className="homeli">
@@ -44,11 +43,8 @@ class NavBar extends Component {
                     <li className="menuli">
                     <Link to="/About/Selab">About SELab</Link>
                     </li>
-
-                    
                 </ul>
                 </div>
-                </Switch>
             </header>
         );
     }

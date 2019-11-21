@@ -19,3 +19,16 @@ code {
 a {
   text-decoration: none;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FFF;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  color: rgba(255, 255, 255, 0.3);
+}
