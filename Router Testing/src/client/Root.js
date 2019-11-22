@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
-import CtrlRouer from './CtrlRouter';
+import CtrlRouter from '../shared/CtrlRouter';
 
 const Root = () => (
     <BrowserRouter>
-        <CtrlRouer></CtrlRouer>
+        <CtrlRouter></CtrlRouter>
     </BrowserRouter>
 );
 

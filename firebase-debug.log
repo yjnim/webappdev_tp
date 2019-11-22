@@ -1,0 +1,49 @@
+[debug] [2019-11-19T09:15:56.681Z] ----------------------------------------------------------------------
+[debug] [2019-11-19T09:15:56.685Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\Tabi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-19T09:15:56.686Z] CLI Version:   7.8.0
+[debug] [2019-11-19T09:15:56.686Z] Platform:      win32
+[debug] [2019-11-19T09:15:56.686Z] Node Version:  v10.16.3
+[debug] [2019-11-19T09:15:56.688Z] Time:          Tue Nov 19 2019 18:15:56 GMT+0900 (GMT+09:00)
+[debug] [2019-11-19T09:15:56.688Z] ----------------------------------------------------------------------
+[debug] [2019-11-19T09:15:56.688Z] 
+[debug] [2019-11-19T09:15:56.701Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-19T09:15:56.702Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Tabi\Desktop\Web\webappdev_tp
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-19T09:16:25.802Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-19T09:16:25.803Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-19T09:16:26.176Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-19T09:16:26.200Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-11-19T09:16:27.259Z] <<< HTTP RESPONSE 200
+[info] i  Using project testcloud-ec445 (Testcloud)
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2019-11-19T09:16:58.967Z] Error: kill ENOSYS
+    at process.kill (internal/process/per_thread.js:198:13)
+    at process.listener (C:\Users\Tabi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\signal-exit\index.js:95:15)
+    at process.emit (events.js:198:13)
+[error] 
+[error] Error: An unexpected error has occurred.
