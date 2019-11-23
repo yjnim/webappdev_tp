@@ -39,16 +39,15 @@ function Introduction() {
 
         var el = document.getElementById("jumplist");
         el.selectedIndex = 0;
+        setSlide(0);
     };
 
     // Slide Next
     const moveSlideNext = () => {
         var length = lengthCheck();
-        if (slide + 1 < length) {
-            var s = slide + 1;
-            //console.log(s);
+        var s = parseInt(slide) + 1;
+        if (s < length) {
             var slnum = "slide" + s;
-            //console.log(slnum);
             var current = document.getElementById('currentSlide');
             var change = document.getElementById(slnum);
             current.innerHTML = change.innerHTML;
@@ -56,7 +55,7 @@ function Introduction() {
             var el = document.getElementById("jumplist");
             el.selectedIndex = s;
 
-            setSlide(slide+1);
+            setSlide(s);
         } else {
             alert("Next page");
         }
@@ -64,11 +63,10 @@ function Introduction() {
 
     // Slide Privious
     const moveSlidePrevious = () => {
-        if (slide > 0) {
-            var s = slide - 1;
-            //console.log(s);
+        var s = parseInt(slide);
+        if (s > 0) {
+            s = s - 1;
             var slnum = "slide" + s;
-            //console.log(slnum);
             var current = document.getElementById('currentSlide');
             var change = document.getElementById(slnum);
             current.innerHTML = change.innerHTML;
@@ -76,18 +74,16 @@ function Introduction() {
             var el = document.getElementById("jumplist");
             el.selectedIndex = s;
 
-            setSlide(slide-1);
+            setSlide(s);
         } else {
             alert("First page");
         }
     };
 
-    const jumpSlide = () => {
+    const jumpSlide = () => {     
         var el = document.getElementById("jumplist");
         var jumplist = el.options[el.selectedIndex].value;
-        var s = parseInt(jumplist[0]);
-        //console.log(jumplist);
-        //console.log(s);
+        var s = getNum(jumplist);
         var slnum = "slide" + s;
         var current = document.getElementById('currentSlide');
         var change = document.getElementById(slnum);
@@ -95,11 +91,36 @@ function Introduction() {
         setSlide(s);
     }
 
+    const getNum = (String) => {
+        var num = "";
+        for (var i=0; i < String.length; i++) {
+            if (isNumber(String[i])) {
+                num += String[i]
+            } else {
+                break;
+            }
+        }
+
+        return num;
+    }
+
+    function isNumber(s) {
+        s += ''; // 문자열로 변환
+        s = s.replace(/^\s*|\s*$/g, ''); // 좌우 공백 제거
+        if (s == '' || isNaN(s)) return false;
+        return true;
+    }
+
     // body 이하의 내용을 Introduction의 안에 복사 붙여넣기함.
     // 모든 class는 React 규칙에 따라 className으로 변경해야 함.
+    // <br> -> <br />
+    // img 태그가 React 규칙에 따라 closing tag (/>)로 끝나도록 바꿔야하는 노가다...
+    // 그래도 에러가 있으면 주석이 있는지 확인. <!-- --> 가 아닌 {/**/} 형태 : '<!--' -> '{/*', '-->' -> '*.}'
+    // 교수님이 html에 attribute로 style을 넣었을 경우, React에서는 style="margin-top: 10" 가 아닌, style={{marginTop: '10'}}로 해야함.
     // class layout 안의 내용을 잘 보고 버튼값 변경 바람. (버튼이 된 이유는 기능구현을 쉽게 하기 위해서)
     // presentation에 style={{display: 'none'}} attribute를 넣어줄 것.
     // selab에서는 visibility: hidden을 사용하고 있으나, 공간을 먹어 이쁘게 안나옴.
+    // body 아래 복붙 후 맨 윗부분 잘 보고 수정
     return (
         <div className="Introduction">
             <div className="layout">
@@ -354,9 +375,5 @@ function Introduction() {
     </div>
     );
 }
-
-//Introduction.propTypes = {
-//    Move: PropTypes.number.isRequired
-//};
 
 export default Introduction;
