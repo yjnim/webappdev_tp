@@ -11,17 +11,18 @@ h1 {
 
 hr {
   margin: 15px auto 8vh auto;
-  width: 5vw;
+  width: 5vh;
   height: 3px;
   border: none;
   background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
 }
 
 .Login-input-div {
-  width: 25vw;
+  min-width: 25vh;
+  width: 25vh;
   height: 6vh;
   margin: 2vh auto 15px auto;
-  padding: 0 2vw;
+  padding: 0 2vh;
   background-color: #FFF;
   border-radius: 7.5vh;
   display: flex;
@@ -29,7 +30,8 @@ hr {
 }
 
 .Login-button-div {
-  width: 29vw;
+  min-width: 29vh;
+  width: 29vh;
   height: 6vh;
   margin: 4vh auto 15px auto;
   background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
@@ -43,10 +45,15 @@ hr {
   width: 30px;
   text-align: justify;
   color: #777777;
+  padding-right: 10px;
 }
 
 .Login-input {
+  min-width: calc(22vh-40px);
+  width: calc(22vh-40px);
+  height: 3vh;
   border: none;
+  background-color: rgba(0,0,0,0);
 }
 
 .Login-input:focus {
@@ -54,7 +61,8 @@ hr {
 }
 
 .Login-button {
-  width: 29vw;
+  min-width: 29vh;
+  width: 29vh;
   height: 6vh;
   border-radius: 7.5vh;
   border: none;
@@ -62,6 +70,7 @@ hr {
   color: #FFF;
   font-size: 2vh;
   font-family: 'Roboto Condensed';
+  text-align: center;
 }
 
 .Login-button-div:hover, .Login-google-div:hover {
@@ -73,7 +82,8 @@ hr {
 }
 
 .Login-google-div {
-  width: 29vw;
+  min-width: 29vh;
+  width: 29vh;
   height: 6vh;
   margin: 6vh auto 15px auto;
   background: #db4c3f;

@@ -25,7 +25,7 @@ class Login extends Component {
                       </button>
                     </div>
                     <div className="Login-google-div">
-                      <button type="submit" className="Login-button">
+                      <button className="Login-button">
                         <img src={ Glogo } className="Glogo-img"></img>Sign in with Google
                       </button>
                     </div>
