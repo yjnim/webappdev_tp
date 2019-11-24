@@ -19,8 +19,8 @@ hr {
 
 .Login-input-div {
   width: 25vw;
-  height: 7.5vh;
-  margin: 3vh auto 30px auto;
+  height: 6vh;
+  margin: 2vh auto 15px auto;
   padding: 0 2vw;
   background-color: #FFF;
   border-radius: 7.5vh;
@@ -28,6 +28,62 @@ hr {
   align-items: center;
 }
 
-.Login-noti {
+.Login-button-div {
+  width: 29vw;
+  height: 6vh;
+  margin: 4vh auto 15px auto;
+  background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  border-radius: 7.5vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
 
+.Login-title {
+  width: 30px;
+  text-align: justify;
+  color: #777777;
+}
+
+.Login-input {
+  border: none;
+}
+
+.Login-input:focus {
+  outline: none;
+}
+
+.Login-button {
+  width: 29vw;
+  height: 6vh;
+  border-radius: 7.5vh;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  color: #FFF;
+  font-size: 2vh;
+  font-family: 'Roboto Condensed';
+}
+
+.Login-button-div:hover, .Login-google-div:hover {
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+.Login-button:focus {
+  outline:none;
+}
+
+.Login-google-div {
+  width: 29vw;
+  height: 6vh;
+  margin: 6vh auto 15px auto;
+  background: #db4c3f;
+  border-radius: 7.5vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.Glogo-img {
+  width: 1.7vh;
+  margin-right: 1vh;
 }
