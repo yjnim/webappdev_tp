@@ -14,28 +14,6 @@ import NoMatch from './routes/NoMatch';
 // CSS import
 import './css/App.scss';
 
-// function goMain() {
-//   var page1 = document.getElementsByClassName("Contents-page1")[0];
-//   var page2 = document.getElementsByClassName("Contents-page2")[0];
-//   page1.classList.remove("hidedisplay");
-//   page1.style.display = "block";
-//   page2.style.display = "none";
-// }
-
-// function goSELab() {
-//   var page1 = document.getElementsByClassName("Contents-page1")[0];
-//   var page2 = document.getElementsByClassName("Contents-page2")[0];
-//   page1.classList.remove("hidedisplay");
-//   page1.classList.add("hidedisplay");
-//   setTimeout(function() { 
-//     page1.style.display = "none"; 
-//     page2.classList.remove("newdisplay");
-//     page2.classList.add("newdisplay");
-//     page2.style.display = "block"; 
-//   }, 700);
-  
-// }
-
 const pageTrans = 'trans'
 const classNames = {
   appear: `${pageTrans} appear`,

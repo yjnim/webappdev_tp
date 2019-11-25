@@ -1,0 +1,37 @@
+$timing: 700ms;
+
+.trans-l {
+  width: 80vh;
+  margin: 0 auto;
+  transition: $timing;
+  transition-timing-function: ease;
+
+  &.enter {
+    z-index: 10;
+    opacity: 0;
+
+    &.active,
+    &.done {
+        opacity: 1;
+    }
+  }
+
+  &.exit {
+    z-index: 9;
+
+    &.active,
+    &.done {
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    position: relative;
+  }
+
+  &.done {
+    position: relative !important;
+    transform: none !important;
+  }
+}
+

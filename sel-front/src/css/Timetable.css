@@ -1,0 +1,64 @@
+.Timetable-div {
+    width: 80vh;
+    height: 80vh;
+    margin: 0 auto;
+}
+
+.Timetable-part {
+    width: 80vh;
+    height: 39vh;
+}
+
+.Timetable-part h1 {
+    text-align: left;
+    font-size: 2vh;
+    margin: 0 0 1vh;
+}
+
+.Class-hr {
+    margin: 0 0 3vh 0.2vh;
+    width: 5vh;
+    height: 3px;
+    border: none;
+    background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+}
+
+.Class-div {
+    width: 22vh;
+    height: 28vh;
+    float: left;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2vh;
+}
+
+.Class-thumbnail {
+    width: 22vh;
+    height: 15vh;
+}
+
+.Class-info {
+    width: 22vh;
+    padding: 1vh;
+}
+
+.Class-sem {
+    font-weight: bold;
+    font-size: 2vh;
+    margin: 0 0 0.5vh 0;
+}
+
+.Class-code {
+    width: 22vh;
+    margin: 0 0 0.5vh 0;
+    font-size: 1.5vh;
+}
+
+.Class-title {
+    width: 22vh;
+    margin: 0 0 0.5vh 0;
+    font-size: 1.7vh;
+}
