@@ -54,7 +54,7 @@ FIREBASE_MESSAGING.onMessage(async function(payload){
 
 subscribeButton.addEventListener("click", subscribeToNotifications);
 unsubscribeButton.addEventListener("click", unsubscribeFromNotifications);
-signOutButton.addEventListener('click', signOut);
+signOutButton.addEventListener("click", signOut);
 
 
 function getLastMessage(){

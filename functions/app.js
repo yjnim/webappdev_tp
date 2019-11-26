@@ -20,7 +20,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-    res.send("씨발");
+    res.send("");
 })
 
 
