@@ -8,10 +8,11 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/**",
+        "function": "app"
       }
-    ]
+    ],
+    "cleanUrls": true
   },
   "database": {
     "rules": "database.rules.json"

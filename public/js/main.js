@@ -1,126 +1,141 @@
-
-/* ========================
-  Variables
-======================== */
-
 const FIREBASE_AUTH = firebase.auth();
-const FIREBASE_MESSAGING = firebase.messaging();
 const FIREBASE_DATABASE = firebase.database();
-const signInButton = document.getElementById('sign-in');
+const FIREBASE_MESSAGING = firebase.messaging();
+
 const signOutButton = document.getElementById('sign-out');
 const subscribeButton = document.getElementById('subscribe');
 const unsubscribeButton = document.getElementById('unsubscribe');
-const sendNotificationForm = document.getElementById('send-notification-form');
 
+var lastMessageData = getLastMessage();
 
 FIREBASE_AUTH.onAuthStateChanged(handleAuthStateChanged);
 FIREBASE_MESSAGING.onTokenRefresh(handleTokenRefresh);
+FIREBASE_MESSAGING.onMessage(async function(payload){
+    if (payload){
+        let lastMessageData = getLastMessage();
+        if (lastMessageData.lastMessage){
+            
+            const { value: formValues } = await Swal.fire({
+                title: '알림',
+                html:
+                `<h3>${lastMessageData.lastMessage}</h3>` + 
+                '<input id="popup_input" class="popup_input">',
+                focusConfirm: false,
+                preConfirm: () => {
+                  return [
+                    document.getElementById('popup_input').value,
+                  ]
+                }
+              })
+              let answer = formValues[0];
+              if (formValues) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: '답변이 제출되었습니다',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+              }
 
-/* ========================
-  Event Listeners
-======================== */
-signInButton.addEventListener('click', signIn);
-signOutButton.addEventListener('click', signOut);
-subscribeButton.addEventListener('click', subscribeToNotifications);
-unsubscribeButton.addEventListener('click', unsubscribeFromNotifications);
-sendNotificationForm.addEventListener("submit", sendNotification);
-
-/* ========================
-  Functions
-======================== */
-function signIn() {
-  FIREBASE_AUTH.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-}
-
-function signOut() {
-  FIREBASE_AUTH.signOut();
-}
-
-function checkSubscription() {
-  FIREBASE_DATABASE.ref('/tokens').orderByChild("uid").equalTo(FIREBASE_AUTH.currentUser.uid).once('value').then((snapshot) => {
-    if ( snapshot.val() ) {
-      subscribeButton.setAttribute("hidden", "true");
-      unsubscribeButton.removeAttribute("hidden");
-    } else {
-      unsubscribeButton.setAttribute("hidden", "true");
-      subscribeButton.removeAttribute("hidden");
+            if (answer && answer !== ""){
+                let user = FIREBASE_AUTH.currentUser;
+                FIREBASE_DATABASE.ref('/answers').push({
+                    notificationKey: lastMessageData.lastMessageKey,
+                    notification: lastMessageData.lastMessage,
+                    answer: answer,
+                    uid: user.uid,
+                    name: user.displayName,
+                }) 
+            }
+        }
     }
-  });
-}
+});
+
+subscribeButton.addEventListener("click", subscribeToNotifications);
+unsubscribeButton.addEventListener("click", unsubscribeFromNotifications);
+signOutButton.addEventListener('click', signOut);
 
 
-function subscribeToNotifications() {
-  FIREBASE_MESSAGING.requestPermission()
-  .then(() => handleTokenRefresh())
-  .then(() => checkSubscription())
-  .catch((err) => {
-    console.log("error getting permission :(");
-  });
-}
-
-function unsubscribeFromNotifications() {
-  FIREBASE_MESSAGING.getToken()
-    .then((token) => FIREBASE_MESSAGING.deleteToken(token))
-    .then(() => FIREBASE_DATABASE.ref('/tokens').orderByChild("uid").equalTo(FIREBASE_AUTH.currentUser.uid).once('value'))
-    .then((snapshot) => {
-      
-      const key = Object.keys(snapshot.val())[0];
-      console.log(key);
-      return FIREBASE_DATABASE.ref('/tokens').child(key).remove();
+function getLastMessage(){
+    let lastMessageData = {};
+    let lastMessage = null;
+    let lastMessageKey = null;
+    FIREBASE_DATABASE.ref('/notifications').on('value', function(data) {
+        let notifications = data.val();
+        if (notifications){
+            let keys = Object.keys(notifications);
+            for(let i=0;i<keys.length;i++){
+                let k = keys[i]
+                let message = notifications[k].message
+                if (i === keys.length-1){
+                    lastMessageData.lastMessage = message;
+                    lastMessageData.lastMessageKey = k
+                }
+            }
+        }
     })
-    .then(() => checkSubscription())
-    .catch((err) => {
-      console.log("error deleting token :(");
-    });
-}
-
-function handleTokenRefresh() {
-  return FIREBASE_MESSAGING.getToken()
-    .then((token) => {
-      console.log(token);
-      FIREBASE_DATABASE.ref('/tokens').push({
-        token: token,
-        uid: FIREBASE_AUTH.currentUser.uid
-      });
-  });
+    return lastMessageData;
 }
 
 
 function handleAuthStateChanged(user) {
-  if (user) {
-    // User is signed in
-    signInButton.setAttribute("hidden", "true");
-    signOutButton.removeAttribute("hidden");
-    subscribeButton.removeAttribute("hidden");
-    sendNotificationForm.removeAttribute("hidden");
-    checkSubscription();
-  } else {
-    // User is not signed in
-    console.log("user is not signed in");
-    signOutButton.setAttribute("hidden", "true");
-    signInButton.removeAttribute("hidden");
-    subscribeButton.setAttribute("hidden", "true");
-    unsubscribeButton.setAttribute("hidden", "true");
-    sendNotificationForm.setAttribute("hidden", "true");
-  }
+    if (!user) {
+        window.location = '/login';
+    } else{
+        checkSubscription();
+    }
 }
 
-function sendNotification(e) {
-  e.preventDefault();
 
-  const notificationMessage = document.getElementById('notification-message').value;
-  if ( !notificationMessage ) return;
+function signOut() {
+    FIREBASE_AUTH.signOut();
+}
 
-  FIREBASE_DATABASE.ref('/notifications')
-    .push({
-      user: FIREBASE_AUTH.currentUser.displayName,
-      message: notificationMessage,
-      userProfileImg: FIREBASE_AUTH.currentUser.photoURL
-    })
-    .then(() => {
-      document.getElementById('notification-message').value = "";
-    })
-    .catch(() => {
-      console.log("error sending notification :(")
+function subscribeToNotifications() {
+    FIREBASE_MESSAGING.requestPermission()
+        .then(() => handleTokenRefresh())
+        .then(() => checkSubscription())
+        .catch((err) => {
+            console.log("error getting permission :(");
+        });
+}
+
+function unsubscribeFromNotifications() {
+    FIREBASE_MESSAGING.getToken()
+        .then((token) => FIREBASE_MESSAGING.deleteToken(token))
+        .then(() => FIREBASE_DATABASE.ref('/tokens').orderByChild("uid").equalTo(FIREBASE_AUTH.currentUser.uid).once('value'))
+        .then((snapshot) => {
+            const key = Object.keys(snapshot.val())[0];
+            return FIREBASE_DATABASE.ref('/tokens').child(key).remove();
+        })
+        .then(() => checkSubscription())
+        .catch((err) => {
+            console.log("error deleting token :(");
+        });
+}
+
+function checkSubscription() {
+    FIREBASE_DATABASE.ref('/tokens').orderByChild("uid").equalTo(FIREBASE_AUTH.currentUser.uid).once('value').then((snapshot) => {
+        if (snapshot.val()) {
+            subscribeButton.setAttribute("hidden", "true");
+            unsubscribeButton.removeAttribute("hidden");
+        } else {
+            unsubscribeButton.setAttribute("hidden", "true");
+            subscribeButton.removeAttribute("hidden");
+        }
+    });
+}
+
+
+function handleTokenRefresh() {
+    let user = FIREBASE_AUTH.currentUser;
+    return FIREBASE_MESSAGING.getToken().then((token) => {
+        FIREBASE_DATABASE.ref('/tokens').push({
+            token: token,
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email
+        });
     });
 }
