@@ -1,0 +1,36 @@
+.presentation {
+    visibility: hidden;
+}
+
+.slide {
+    position: fixed;
+    top: 0;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    font-size: 50%;
+}
+
+#controls {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#currentSlide {
+    position: fixed;
+    bottom: 50;
+    left: 50%;
+}
+
+#slide0 {
+    visibility: visible;
+}
+
+
+
+.slide h1 {
+    background-color: blue;
+}
