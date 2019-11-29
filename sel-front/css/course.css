@@ -1,12 +1,28 @@
 .Timetable-div {
     width: 80vh;
-    height: 80vh;
+    height: 100vh;
     margin: 0 auto;
+    padding-top: 13vh;
+    color: #FFF;
+    animation-name: side-fade-enter;
+}
+
+@keyframes side-fade-enter {
+    from {
+        padding-left: 30px;
+        opacity: 0;
+    }
+    to {
+        padding-left: 0;
+        opacity: 1;
+    }
 }
 
 .Timetable-part {
     width: 80vh;
+    min-width: 80vh;
     height: 39vh;
+    padding: 4vh 10vh 0 10vh;
 }
 
 .Timetable-part h1 {

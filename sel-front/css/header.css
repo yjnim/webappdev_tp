@@ -1,6 +1,4 @@
-/* 네브바 css */
-
-.App-header {
+#App-header {
     width: 100vw;
     height: 90px;
     z-index: 1;
@@ -17,7 +15,7 @@
   }
 
   .App-logo img {
-    height: 35px;
+    height: 30px;
   }
 
   .Header-menudiv {
@@ -42,6 +40,10 @@
     font-weight: bold;
     border: 0;
     margin-right: 20px;
+  }
+
+  .menuli:nth-last-child(n+1) {
+      padding-top: 20px;
   }
 
   .menuli a {
