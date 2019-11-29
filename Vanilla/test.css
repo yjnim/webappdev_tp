@@ -1,36 +1,21 @@
-.presentation {
-    visibility: hidden;
+/* 테스트용 */
+html {
+    overflow: hidden;
 }
-
 .slide {
-    position: fixed;
-    top: 0;
+    visibility: hidden;
+    height: 100vh;
 }
 
-#footer {
-    position: fixed;
-    bottom: 0;
-    font-size: 50%;
-}
-
-#controls {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-
-#currentSlide {
-    position: fixed;
-    bottom: 50;
-    left: 50%;
-}
-
-#slide0 {
+.slide:first-child {
     visibility: visible;
 }
 
-
-
 .slide h1 {
-    background-color: blue;
+    background-color: rgb(224,224,224);
+}
+
+.layout {
+    position: fixed;
+    bottom: 0;
 }
