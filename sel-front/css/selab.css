@@ -1,6 +1,6 @@
 
 .Lab-list {
-    min-width: 25vw;
+    min-width: 15vh;
     padding-right: 30px;
     float: left;
 }
@@ -39,7 +39,7 @@
 .Lab-contents {
     width: 60vw;
     height: 80vh;
-    float: left;
+    float: right;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;

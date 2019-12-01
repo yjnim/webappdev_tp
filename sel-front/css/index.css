@@ -30,7 +30,7 @@ a {
 .Contents-page2 { 
   height: 80vh;
   padding-top: 6vh;
-  width: 80vw !important;
+  width: 90vh !important;
   margin: 0 auto;
   animation-name: side-fade-enter;
   animation-duration: 0.7s;

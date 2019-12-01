@@ -1,0 +1,91 @@
+.lecture-menu {
+    margin: 6vh 0 0 0;
+}
+
+.lecture-menu-on {
+    width: 110px;
+    height: 40px;
+    background-color: #FFF;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    float: left;
+}
+
+.lecture-menu-off {
+    width: 90px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    float: left;
+    top: 10px;
+}
+
+.lecture-menu div hr {
+    width: 90vh;
+    border: 3px solid #FFF;
+    clear: both;
+}
+
+.lecture-contents {
+    margin-top: 20px;
+}
+
+.lecture-list {
+    display: block;
+}
+
+.lecture-info {
+    display: none;
+}
+
+.lecture-menu button:focus {
+    outline: 0;
+    border: 0;
+  }
+
+.lecture-list-half {
+    width: 40vh;
+    float: left;
+    background-color: #ebecf0;
+    border-radius: 5px;
+    margin: 0 2.5vh;
+}
+
+.lecture-list-title {
+    font-size: 1.8vh;
+    font-weight: bold;
+    color: #000;
+    margin: 1.2vh;
+}
+
+.lecture-list-contents {
+    width: 40vh;
+}
+
+.lecture-list-content {
+    width: 35vh;
+    height: 5vh;
+    background-color: #FFF;
+    padding: 1vh;
+    border-radius: 5px;
+    box-shadow: 0px 1px 0px 0px grey;
+    margin: 1vh auto;
+}
+
+.slide-title {
+    color: #000;
+    font-size: 1.6vh;
+    font-weight: bold;
+    margin: 0.5vh 1vh;
+}
+
+.slide-date {
+    color: rgb(46, 46, 46);
+    font-size: 1.4vh;
+    margin: 0.5vh 1vh;
+}
+
