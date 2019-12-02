@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <% include ./head.ejs%>
+  <link rel="stylesheet" type="text/css" href="/css/login.css" />
+</head>
+
+<body>
+  <% include ./header.ejs%>
+  <div id="container">
+        <div class="Contents-page2">
+            <div class="Login-div">
+                <h1>Login</h1>
+                <hr />
+                <form>
+                <div class="Login-input-div">
+                    <span class="Login-title">ID</span>
+                    <input type="text" class="Login-input"/>
+                </div>
+                <div class="Login-input-div">
+                    <span class="Login-title">PW</span>
+                    <input type="text" class="Login-input"/>
+                </div>
+                <div class="Login-button-div">
+                    <button type="submit" class="Login-button">
+                    Sign in
+                    </button>
+                </div>
+                <div class="Login-google-div">
+                    <button class="Login-button">
+                    <img src="../img/google-g-icon.jpg" class="Glogo-img"></img>Sign in with Google
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+  </div>
+</body>
+</html>
