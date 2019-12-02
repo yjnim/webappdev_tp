@@ -1,0 +1,84 @@
+#App-header {
+    width: 100vw;
+    height: 90px;
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .App-logo {
+    margin-left: 15%;
+    display: flex;
+    align-items: center;
+  }
+
+  .App-logo img {
+    height: 30px;
+  }
+
+  .Header-menudiv {
+    width: 60vw;
+    min-width: 800px;
+    float: left;
+    margin: 0 auto;
+  }
+  
+  .Header-menudiv ul {
+    list-style: none;
+    margin: 0;
+  }
+  
+  .homeli {
+    float: left;
+    width: 40px;
+  }
+
+  .menuli {
+    float: right;
+    font-weight: bold;
+    border: 0;
+    margin-right: 20px;
+  }
+
+  .menuli:nth-last-child(n+1) {
+      padding-top: 20px;
+  }
+
+  .menuli a {
+    color: white;
+  }
+
+  .menuli:hover {
+    animation-duration: 0.5s;
+    animation-name: menulihover;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes menulihover {
+      from {
+          border: none;
+      }
+
+      to {
+          padding-bottom: 10px;
+          border-bottom: 3px solid #000;
+      }
+  }
+
+  .Header-menudiv a:hover {
+    animation-duration: 0.5s;
+    animation-name: menuahover;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes menuahover {
+      from {
+          color: white;
+      }
+
+      to  {
+          color: #000;
+      }
+  }
