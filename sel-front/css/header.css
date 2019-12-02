@@ -19,7 +19,7 @@
   }
 
   .Header-menudiv {
-    width: 60vw;
+    width: 80vh;
     min-width: 800px;
     float: left;
     margin: 0 auto;
@@ -43,7 +43,7 @@
   }
 
   .menuli:nth-last-child(n+1) {
-      padding-top: 20px;
+      padding-bottom: 20px;
   }
 
   .menuli a {
