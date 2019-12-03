@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> haeseok
 .Contents-page1 {
     width: 100vw;
     margin: 0 auto;
@@ -48,17 +44,7 @@
     animation-duration: 0.5s;
     animation-name: titleh1;
     animation-fill-mode: forwards;
-<<<<<<< HEAD
-    
-    /* 스크롤 방지 */
-    -ms-user-select: none;
-    -moz-user-select: -moz-none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    user-select:none;
-=======
     user-select: none;
->>>>>>> haeseok
   }
   
   @keyframes titleh1 {
@@ -139,10 +125,6 @@
     font-size: 1.6vh;
     font-family: "Ubuntu";
     color: rgb(0,171,217);
-<<<<<<< HEAD
-    cursor:pointer;
-=======
->>>>>>> haeseok
   }
   
   .page1-q-div-bt:hover {
@@ -176,9 +158,4 @@
       opacity: 0;
       margin-right: 50px;
     }
-<<<<<<< HEAD
   }
-  
-=======
-  }
->>>>>>> haeseok
