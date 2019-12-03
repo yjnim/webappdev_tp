@@ -26,7 +26,7 @@ function handleAuthStateChanged(user) {
     }
    
   } else {
-    window.location = '/login';
+    window.location = '/';
   }
 }
 

@@ -1,11 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const app = require('./app');
 
 admin.initializeApp();
-
-exports.app = functions.https.onRequest(app);
-
 
 exports.sendNotifications = functions.database.ref('/notifications/{notificationId}').onWrite((change, context) => {
 
@@ -23,7 +19,7 @@ exports.sendNotifications = functions.database.ref('/notifications/{notification
             title: `${NOTIFICATION_SNAPSHOT.val().user}님의 새로운 메세지`,
             body: NOTIFICATION_SNAPSHOT.val().message,
             icon: NOTIFICATION_SNAPSHOT.val().userProfileImg,
-            click_action: "https://webappdev-1a951.firebaseapp.com"
+            click_action: "https://webappdev-1a951.firebaseapp.com/html/mypage.html"
         }
     }
 

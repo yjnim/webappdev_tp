@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+body {
+  background-image: linear-gradient(to top left, rgba(86,89,218,1) 0%, rgba(0,171,217,1) 90% );
+  background-repeat: no-repeat;
+  background-size: 100%;
+  overflow: hidden;
+}
+
+#container {
+  min-width: 100vh;
+}
+
+#mainbg {
+  min-height: 90vh;
+  min-width: 80vw;
+  padding-top: 10vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#container {
+  height: 100vh;
+}
+
+.Contents-page2 { 
+  height: 80vh;
+  padding-top: 6vh;
+  width: 90vh !important;
+  margin: 0 auto;
+  animation-name: side-fade-enter;
+  animation-duration: 0.7s;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #FFF;
+}
+
+@keyframes side-fade-enter {
+  from {
+      padding-left: 30px;
+      opacity: 0;
+  }
+  to {
+      padding-left: 0;
+      opacity: 1;
+  }
+}
