@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab7-SQL.html -->
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../../css/slide.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../../../js/slide.js"></script>
+        <title>SQL - Week 11</title>
+    </head>
+
+<body>
+    <div class="layout">
+        <div id="controls">
+            <form action="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab7-SQL.html#" id="controlForm"
+                undefined="">
+                <div id="navLinks">
+                    <div id="navaLinks">
+                        <a accesskey="t" id="toggle" title="Print View"
+                            href="javascript:printView();">Ø</a>
+                        <a accesskey="z" id="prev" title="Previous Slide"
+                            href="javascript:moveSlide(-1);">«</a>
+                        <a accesskey="x" id="next" title="Next Slide"
+                            href="javascript:moveSlide(1);">»</a>
+                    </div>
+                    <div id="navList"><select id="jumplist" onchange="jumpSlide();">
+                            <option value="0 : CSE3026: Web Application Development  Lab 7: SQL">0 : CSE3026: Web
+                                Application Development Lab 7: SQL</option>
+                            <option value="1 : Lab 7 exercises">1 : Lab 7 exercises</option>
+                            <option value="2 : Ex 1: Create DB and tables">2 : Ex 1: Create DB and tables</option>
+                            <option value="3 : Ex 1: Create DB and tables">3 : Ex 1: Create DB and tables</option>
+                            <option value="4 : Ex 1: Create DB and tables">4 : Ex 1: Create DB and tables</option>
+                            <option value="5 : Ex 2: Insert data">5 : Ex 2: Insert data</option>
+                            <option value="6 : Ex 2: Insert data">6 : Ex 2: Insert data</option>
+                            <option value="7 : Ex 3: Update &amp; delete data">7 : Ex 3: Update &amp; delete data
+                            </option>
+                            <option value="8 : Ex 4: Query data">8 : Ex 4: Query data</option>
+                            <option value="9 : Ex 5: Advanced query">9 : Ex 5: Advanced query</option>
+                            <option value="10 : More exercises">10 : More exercises</option>
+                            <option value="11 : Ex 6: Multi-table query - imdb DB">11 : Ex 6: Multi-table query - imdb
+                                DB</option>
+                            <option value="12 : Ex 7: Multi-table query - simpsons DB">12 : Ex 7: Multi-table query -
+                                simpsons DB</option>
+                            <option value="13 : Ex 8: Running query on PHP">13 : Ex 8: Running query on PHP</option>
+                            <option value="14 : If you finish them all...">14 : If you finish them all...</option>
+                        </select></div>
+                </div>
+            </form>
+        </div>
+        <div id="currentSlide">
+            <!-- DO NOT EDIT -->
+        </div>
+        <div id="header"></div>
+        <div id="footer">
+            <h1>CSE3026: Web Application Development</h1>
+            <h2>Lab 7: Basic SQL</h2>
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="slide" id="slide0">
+            <h1><span class="smallerFont">CSE3026: Web Application Development</span> <br> <strong>Lab 7: SQL</strong>
+            </h1>
+            <br>
+            <h2>Scott Uk-Jin Lee</h2>
+
+            <p class="license">
+                Except where otherwise noted, the contents of this document are
+                Copyright 2019 Scott Uk-Jin Lee.
+
+                All rights reserved.
+                Any redistribution, reproduction, transmission, or storage of part
+                or all of the contents in any form is prohibited without the author's
+                expressed written permission.
+            </p>
+
+            <p class="license">
+                <em>
+                    Original lab idea and code by Jaeho Choi
+                </em>
+            </p>
+
+            <div class="w3c">
+                <a href="https://validator.w3.org/check/referer"><img
+                        src="../../../img/CSE3026/CSE3026Lab/CSE3026 Lab 7_ Basic SQL_files/w3c-html.png" alt="Valid HTML5"></a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                        src="../../../img/CSE3026/CSE3026Lab/CSE3026 Lab 7_ Basic SQL_files/w3c-css.png" alt="Valid CSS"></a>
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide1">
+            <h1>Lab 7 exercises</h1>
+
+            <p>create <q>College</q> DB and solve the related SQL questions</p>
+
+            <hr>
+
+            <ol>
+                <li>Create DB and tables</li>
+                <li>Insert data</li>
+                <li>Update &amp; delete data</li>
+                <li>Query data</li>
+                <li>Advanced query</li>
+            </ol>
+        </div>
+
+        <div class="slide" id="slide2">
+            <h1>Ex <span class="exercisenumber">1</span>: Create DB and tables</h1>
+
+            <p>
+                Create a database called <code>college</code> with the following tables.
+            </p>
+
+            <hr>
+
+            <ul>
+                <li>Student table ( table name: <code>student</code>) has the following columns:
+                    <ul>
+                        <li>has <code>student_id</code> column that has interger type</li>
+                        <li>has <code>name</code> column that is 10 bytes long</li>
+                        <li>has <code>year</code> column that has smallest integer type</li>
+                        <li>has <code>dept_no</code> column that has interger type</li>
+                        <li>has <code>major</code> column that is 20 bytes long</li>
+                    </ul>
+                    <ul>
+                        <li>has <code>student_id</code> as primary key</li>
+                        <li>does not allow <code>NULL</code> in any column except <code>major</code></li>
+                        <li>default value for <code>year</code> is <code>1</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide3">
+            <h1>Ex <span class="exercisenumber noincrement">1</span>: Create DB and tables</h1>
+
+            <p>
+                Create the following table in the <code>college</code> DB.
+            </p>
+
+            <hr>
+
+            <ul>
+                <li>Department table ( table name: <code>department</code>) has the following columns:
+                    <ul>
+                        <li>has <code>dept_no</code> column that has interger type</li>
+                        <li>has <code>dept_name</code> column that is 20 bytes long</li>
+                        <li>has <code>office</code> column that is 20 bytes long</li>
+                        <li>has <code>office_tel</code> column that is 13 bytes long</li>
+                    </ul>
+                    <ul>
+                        <li>has <code>dept_no</code> as primary key and system increments the key value by 1
+                            automatically</li>
+                        <li>does not allow <code>NULL</code> in any column except <code>office_tel</code></li>
+                        <li>does not allow duplicate values for <code>dept_name</code> column</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide4">
+            <h1>Ex <span class="exercisenumber noincrement">1</span>: Create DB and tables</h1>
+
+            <p>
+                Modify <code>student</code> table.
+            </p>
+
+            <hr>
+
+            <ul>
+                <li>change the property of the <code>major</code> column to have 30 bytes string</li>
+                <li>check whether your change has applied succesfully applied to the <code>student</code> table</li>
+                <li>add <code>gender</code> column to the <code>student</code> table</li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide5">
+            <h1>Ex <span class="exercisenumber">2</span>: Insert data</h1>
+
+            <p>
+                Insert the following data to the corresponding table.
+            </p>
+
+            <hr>
+
+            <ul>
+                <li>
+                    Initially remove the <code>gender</code> column from the <code>student</code> table.
+                </li>
+
+                <li>
+                    data for the <code>student</code> table:<br>
+                    (<code>dept_no</code> in <code>student</code> table and <code>dept_no</code> in
+                    <code>department</code> table must match)
+                    <ul>
+                        <li>
+                            (20070002, 'Jane Smith', 3, 4, 'Business Administration') (20060001, 'Ashley Jackson', 4, 4,
+                            'Business Administration') <br>
+                            (20030001, 'Liam Johnson', 4, 2, 'Electrical Engineering') (20040003, 'Jacob Lee', 3, 2,
+                            'Electrical Engineering') <br>
+                            (20060002, 'Noah Kim', 3, 1, 'Computer Science') (20100002, 'Ava Lim', 3, 4, 'Business
+                            Administration') <br>
+                            (20110001, 'Emma Watson', 2, 1, 'Computer Science') (20080003, 'Lisa Maria', 4, 3, 'Law')
+                            <br>
+                            (20040002, 'Jacob William', 4, 5, 'Law') (20070001, 'Emily Rose', 4, 4, 'Business
+                            Administration') <br>
+                            (20100001, 'Ethan Hunt', 3, 4, 'Business Administration') (20110002, 'Jason Mraz' 2, 1,
+                            'Electrical Engineering') <br>
+                            (20030002, 'John Smith', 5, 1, 'Computer Science') (20070003, 'Sophia Park', 4, 3, 'Law')
+                            <br>
+                            (20070007, 'James Michael', 2, 4, 'Business Administration') (20100003, 'James Bond', 3, 1,
+                            'Computer Science') <br>
+                            (20070005, 'Olivia Madison', 2, 5, 'English Language and Literature')
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide6">
+            <h1>Ex <span class="exercisenumber noincrement">2</span>: Insert data</h1>
+
+            <p>
+                Insert the following data to the corresponding table.
+            </p>
+
+            <hr>
+
+            <ul>
+                <li>
+                    data for the <code>department</code> table:<br>
+                    (<code>dept_no</code> in <code>student</code> table and <code>dept_no</code> in
+                    <code>department</code> table must match)
+                    <ul>
+                        <li>
+                            dept_no = 1, ('Computer Science', 'Science Building 101', '02-3290-0123') <br>
+                            dept_no = 2, ('Electrical Engineering', 'Engineering Building 401', '02-3290-2345') <br>
+                            dept_no = 3, ('Law', 'Law Building 201', '02-3290-7896') <br>
+                            dept_no = 4, ( 'Business Administration', 'Business Building 104', '02-3290-1112') <br>
+                            dept_no = 5, ('English Language and Literature', 'Language Building 303', '02-3290-4412')
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide7">
+            <h1>Ex <span class="exercisenumber">3</span>: Update &amp; delete data</h1>
+
+            <p>
+                Update or delete data to reflect the following facts on the <code>college</code> DB.
+            </p>
+
+            <hr>
+
+            <ol>
+                <li>'Electrical Engineering' department changed its name to 'Electrical and Electronics Engineering'
+                </li>
+                <li>a new department called 'Special Education' is created at 'Education Building 403' (02-3290-2347)
+                </li>
+                <li>student named 'Emma Watson' has transferred to the newly created department</li>
+                <li>student named 'Jason Mraz' quit the college to further pursue his singing career</li>
+                <li>student named 'John Smith' was kicked out of the college for his disrespectful and unethical actions
+                </li>
+            </ol>
+        </div>
+
+
+        <div class="slide" id="slide8">
+            <h1>Ex <span class="exercisenumber">4</span>: Query data</h1>
+
+            <ol>
+                <li>search for all students from Computer Science</li>
+                <li>search for each sutdent's id, year, and major</li>
+                <li>search for all 3rd year students</li>
+                <li>search for all 1st and 2nd year students</li>
+                <li>search for all students from Business Administration using <code>dept_no</code> from
+                    <code>department</code> table</li>
+            </ol>
+        </div>
+
+
+        <div class="slide" id="slide9">
+            <h1>Ex <span class="exercisenumber">5</span>: Advanced query</h1>
+
+            <p>
+                Use <code>ORDER BY</code>, <code>GROUP BY</code>, <code>HAVING</code>, <code>LIMIT</code>,
+                <code>LIKE</code> to :
+            </p>
+            <ul>
+                <li>search for all students who has <code>student_id</code> that contains <q>2007</q>
+                    (<code>LIKE</code>)</li>
+                <li>search for all students and order them by <code>student_id</code> (<code>ORDER BY</code>)</li>
+                <li>group students by the major and search for the major where its students average year is greater than
+                    3 (<code>GROUP BY</code>, <code>HAVING</code>)</li>
+                <li>search for only two students from Business Administration who has <code>student_id</code> that
+                    contains <q>2007</q> (<code>LIMIT</code>)</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide10">
+            <h1>More exercises</h1>
+
+
+            <hr>
+
+            <ol>
+                <li>Multi-table query - <code>imdb</code> DB</li>
+                <li>Multi-table query - <code>simpsons</code> DB</li>
+                <li>Running query on PHP</li>
+            </ol>
+        </div>
+
+        <div class="slide" id="slide11">
+            <h1>Ex <span class="exercisenumber">6</span>: Multi-table query - <code>imdb</code> DB</h1>
+
+            <p>Use <code>imdb</code> DB and solve the related SQL questions</p>
+
+            <hr>
+
+            <ul>
+                <li>search all roles played in the movie named <em>Pi</em>. (28 rows)</li>
+                <li>search first/last names of all actors who appeared in <em>Pi</em> along with their roles (28 rows)
+                </li>
+                <li>search first/last names of all actors who appeared in both <em>Kill Bill: Vol.1</em> and <em>Kill
+                        Bill: Vol.2</em> (10 rows)</li>
+                <li>search for top 7 actors who have appeared in the most films, in descending order</li>
+                <li>search for top 3 most popular genres of films, in descending order</li>
+                <li>search the name of the director who has directed the most <code>Thriller</code> films</li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide12">
+            <h1>Ex <span class="exercisenumber">7</span>: Multi-table query - <code>simpsons</code> DB</h1>
+
+            <p>Use <code>simpsons</code> DB and solve the related SQL questions</p>
+
+            <hr>
+
+            <ul>
+                <li>search all roles grades given in the course <em>Computer Science 143</em> (4 rows)</li>
+                <li>search names and grades of all students who took <em>Computer Science 143</em> and got a <em>B-</em>
+                    or better (2 rows)</li>
+                <li>search names of all students who got a <em>B-</em> or better in any course, along with the names of
+                    the course and the grades (5 rows)</li>
+                <li>search names of all courses that have been taken by 2 or more students (2 rows)</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide13">
+            <h1>Ex <span class="exercisenumber">8</span>: Running query on PHP</h1>
+
+            <p>
+                write a PHP program that :
+            </p>
+
+            <ol>
+                <li>receives a <code>DB name</code> and an <code>SQL query</code> from user inputs through form </li>
+                <li>connects to the specified DB </li>
+                <li>queries data with the given SQL query (can use queries constructed from previous exercises)</li>
+                <li>displays each row of the query results in unordered list</li>
+            </ol>
+        </div>
+
+
+        <div class="slide" id="slide14">
+            <h1>If you finish them all...</h1>
+
+            <p>If you finish all the exercises:</p>
+
+            <ol>
+                <li><strong>check the correctness</strong> of your page with a TA if necessary</li>
+                <li>submit your <code>sql.php</code> and <code>sql.txt</code> files to your <code>Git</code> repository
+                    under <code>lab07</code> folder</li>
+            </ol>
+
+            <p><strong>Great work!</strong></p>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
