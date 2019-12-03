@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab8-pimpMyText.html -->
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../slide.css">
+        <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../slide.js"></script>
+        <title>JavaScript - Week 12</title>
+    </head>
+
+<body>
+    <div class="layout">
+        <div id="controls">
+            <form action="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab8-pimpMyText.html#" id="controlForm"
+                undefined="">
+                <div id="navLinks">
+                    <div id="navaLinks">
+                        <a accesskey="t" id="toggle" title="Print View"
+                            href="javascript:printView();">Ø</a>
+                        <a accesskey="z" id="prev" title="Previous Slide"
+                            href="javascript:moveSlide(-1);">«</a>
+                        <a accesskey="x" id="next" title="Next Slide"
+                            href="javascript:moveSlide(1);">»</a>
+                    </div>
+                    <div id="navList"><select id="jumplist" onchange="jumpSlide();">
+                            <option value="0 : CSE3026: Web Application Development  Lab 8: Pimp My Text">0 : CSE3026:
+                                Web Application Development Lab 8: Pimp My Text</option>
+                            <option value="1 : Lab 8: Pimp My Text">1 : Lab 8: Pimp My Text</option>
+                            <option value="2 : Lab 8 exercises">2 : Lab 8 exercises</option>
+                            <option value="3 : Ex 1: Create UI Elements">3 : Ex 1: Create UI Elements</option>
+                            <option value="4 : Ex 1: screenshot">4 : Ex 1: screenshot</option>
+                            <option value="5 : Ex 2: JavaScript alert">5 : Ex 2: JavaScript alert</option>
+                            <option value="6 : Ex 3: Hello World Button">6 : Ex 3: Hello World Button</option>
+                            <option value="7 : Ex 4: Bigger Pimpin&#39;! Button">7 : Ex 4: Bigger Pimpin'! Button
+                            </option>
+                            <option value="8 : Ex 4: screenshot">8 : Ex 4: screenshot</option>
+                            <option value="9 : Ex 5: Bling Checkbox">9 : Ex 5: Bling Checkbox</option>
+                            <option value="10 : Ex 5: screenshot">10 : Ex 5: screenshot</option>
+                            <option value="11 : Ex 6: Snoopify">11 : Ex 6: Snoopify</option>
+                            <option value="12 : Ex 6: screenshot">12 : Ex 6: screenshot</option>
+                            <option value="13 : Ex 7: Font Timer">13 : Ex 7: Font Timer</option>
+                            <option value="14 : Ex 8: Unobtrusive JavaScript">14 : Ex 8: Unobtrusive JavaScript</option>
+                            <option value="15 : Ex 9: More Gangsta">15 : Ex 9: More Gangsta</option>
+                            <option value="16 : If you finish them all...">16 : If you finish them all...</option>
+                        </select></div>
+                </div>
+            </form>
+        </div>
+        <div id="currentSlide">
+            <!-- DO NOT EDIT -->
+        </div>
+        <div id="header"></div>
+        <div id="footer">
+            <h1>CSE3026: Web Application Development</h1>
+            <h2>Lab 8: Pimp My Text</h2>
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="slide" id="slide0">
+            <h1><span class="smallerFont">CSE3026: Web Application Development</span> <br> <strong>Lab 8: Pimp My
+                    Text</strong></h1>
+            <br>
+            <h2>Scott Uk-Jin Lee</h2>
+
+            <p class="license">
+                Except where otherwise noted, the contents of this document are
+                Copyright 2019 Scott Uk-Jin Lee.
+
+                All rights reserved.
+                Any redistribution, reproduction, transmission, or storage of part
+                or all of the contents in any form is prohibited without the author's
+                expressed written permission.
+            </p>
+
+            <div class="w3c">
+                <a href="https://validator.w3.org/check/referer"><img
+                        src="./CSE3026 Lab 8_ Pimp My Text_files/w3c-html.png" alt="Valid HTML5"></a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                        src="./CSE3026 Lab 8_ Pimp My Text_files/w3c-css.png" alt="Valid CSS"></a>
+            </div>
+        </div>
+
+        <div class="slide" id="slide1">
+            <h1>Lab 8: Pimp My Text</h1>
+
+            <p>Lab 8: Pimp My Text - create the appropriate Javascript for <q>Pimp My Text</q> web page </p>
+
+            <hr>
+            <p>
+                The <q>Pimp My Text</q> web page allows user to type text into a box and
+                <q>pimp out</q> the text with funny styling by clicking on UI controls.
+            </p>
+
+            <p>
+                The <q>Pimp My Text</q> page has a linked Javascript (<code>pimpmytext.js</code>)
+                that will manipulate the text.
+            </p>
+        </div>
+
+
+        <div class="slide" id="slide2">
+            <h1>Lab 8 exercises</h1>
+
+            <p>
+                Download the <a
+                    href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/pimpmytext.html"><code>pimpmytext.html</code></a>
+                and complete the following exercises.
+            </p>
+
+            <ol>
+                <li>Create UI Elements</li>
+                <li>JavaScript <code>alert</code></li>
+                <li>Hello World Button</li>
+                <li>Bigger Pimpin' Button</li>
+                <li>Bling Checkbox</li>
+                <li>Snoopify</li>
+                <li>Font Timer</li>
+                <li>Unobtrusive JavaScript</li>
+                <li>More Gangsta (extra point exercises)</li>
+            </ol>
+        </div>
+
+
+        <div class="slide" id="slide3">
+            <h1>Ex <span class="exercisenumber">1</span>: Create UI Elements</h1>
+
+            <p class="readbeforestarting">
+                (See example screenshot on next slide.)
+            </p>
+
+            <p>
+                expand <code>pimpmytext.html</code> by adding UI controls. Add the followings:
+            </p>
+
+            <ul>
+                <li>
+                    A box for users to enter large (multi-line) amounts of text.
+                    <ul>
+                        <li>
+                            It should be 4 rows by 30 columns in size.
+                        </li>
+                        <li>
+                            Wrap it in a <code>&lt;fieldset&gt;</code> with the label <q>Text</q>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Add a second <code>&lt;fieldset&gt;</code> labeled <q>Pimp It</q> that contains the following
+                    controls:
+                    <ul>
+                        <li>
+                            A button labeled <q>Bigger Pimpin'!</q>
+                        </li>
+                        <li>
+                            A checkbox labeled <q>Bling</q>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide4">
+            <h1>Ex <span class="exercisenumber noincrement">1</span>: screenshot</h1>
+
+            <p>
+                Your page should look like this:
+            </p>
+
+            <div class="outputimagearea">
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/ex1_output.png" alt="expected output">
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide5">
+            <h1>Ex <span class="exercisenumber">2</span>: JavaScript <code>alert</code></h1>
+
+            <p>
+                Let's try a bit of JavaScript testing code that pops up an <code>alert</code> box.
+                This is just to test that your browser is running your JavaScript file correctly,
+                before we move on to tougher exercises.
+            </p>
+
+            <div style="float: right; margin-left: 1em">
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/ex2_output.png" alt="hello world">
+            </div>
+
+            <ul>
+                <li>
+                    Create a new <code>pimpmytext.js</code> file.
+                </li>
+
+                <li>
+                    Put the following line of code into the file:
+
+                    <pre>alert("Hello, world!");</pre>
+                </li>
+
+                <li>
+                    Link your HTML page to the <code>pimpmytext.js</code>.
+                </li>
+
+                <li>
+                    Refresh your page in the browser. Do you see the <code>alert</code> message?
+                    <ul>
+                        <li>If so, move on.</li>
+                        <li>If not, double-check your <code>script</code> tag syntax or ask a TA for help.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide6">
+            <h1>Ex <span class="exercisenumber">3</span>: Hello World Button</h1>
+
+            <p>
+                Let's set up a very basic JS event handler.
+                Modify your JS code and HTML so that the <q>Hello, world!</q> <code>alert</code>
+                message only pops up when the user clicks the <q>Bigger Pimpin</q> button.
+            </p>
+
+            <div style="float: right; margin-left: 1em">
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/ex2_output.png" alt="hello world">
+            </div>
+
+            <ul>
+                <li>
+                    Modify your JS file to wrap the <code>alert</code> into a function.
+                </li>
+
+                <li>
+                    Add an <code>onclick</code> handler attribute to the <q>Bigger Pimpin'!</q> button that calls your
+                    new function.
+                </li>
+
+                <li>
+                    Refresh your page in the browser. Click the button. Do you see the <code>alert</code>?
+                    <ul>
+                        <li>If so, move on.</li>
+                        <li>If not, double-check your <code>onclick</code> tag syntax and function, or ask a TA for
+                            help.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide7">
+            <h1>Ex <span class="exercisenumber">4</span>: Bigger Pimpin'! Button</h1>
+
+            <p class="readbeforestarting">
+                (See example screenshot on next slide.)
+            </p>
+
+            <p>
+                Modify your JS code so that when the user clicks <q>Bigger Pimpin'!</q> button, the text in the text
+                area will get larger.
+            </p>
+
+            <ul>
+                <li>
+                    Make sure your text area has an <code>id</code> attribute so your JS code can communicate with it.
+                </li>
+
+                <li>
+                    Modify your JS function so that it now changes the text area's font size to <code>24pt</code>.
+                </li>
+
+                <li>
+                    <em>Hint:</em> The syntax for accessing an element by ID and changing a style is:
+
+                    <pre style="margin-bottom: 0.5em">$("<var>elementID</var>").style.<var>propertyName</var> = "<var>value</var>";
+</pre>
+
+                    <ul>
+                        <li>Use proper units, such as <q>24pt</q>, and proper capitalization, such as
+                            <code>backgroundColor</code> .</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide8">
+            <h1>Ex <span class="exercisenumber noincrement">4</span>: screenshot</h1>
+
+            <p>
+                The text should look like this after the button is clicked:
+            </p>
+
+            <div>
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/ex4_output.png" alt="expected output">
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide9">
+            <h1>Ex <span class="exercisenumber">5</span>: Bling Checkbox</h1>
+
+            <p class="readbeforestarting">
+                (See example screenshot on next slide.)
+            </p>
+
+            <p>
+                Add an event handler to <q>Bling</q> checkbox.
+                So that when the user checks it, the text area will receive some styles.
+            </p>
+
+            <ul>
+                <li>
+                    Add an <code>onchange</code> on the checkbox that calls a function that pops up an
+                    <code>alert</code>.
+                </li>
+
+                <li>
+                    Modify your new function to set the text area's font weight to <code>bold</code>.
+
+                    <ul>
+                        <li>
+                            Examine a checkbox's <code>checked</code> property to if the checkbox is checked. (give it
+                            an <code>id</code>)
+                        </li>
+                        <li>
+                            When the box is unchecked, the font weight should go back to normal.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    Then, add the following styles to the text when the checkbox is checked:
+                    <ul>
+                        <li>
+                            change its color to green and underline the text
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide10">
+            <h1>Ex <span class="exercisenumber noincrement">5</span>: screenshot</h1>
+
+            <p>
+                Your page should look like this when the box is checked:
+            </p>
+
+            <div>
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/ex5_output.png" alt="expected output">
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide11">
+            <h1>Ex <span class="exercisenumber">6</span>: Snoopify</h1>
+
+            <p class="readbeforestarting">
+                (See example screenshot on next slide.)
+            </p>
+
+            <div style="float: right; margin-left: 1em">
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/snoop-dogg.jpg" alt="Snoop Dogg" width="130" height="130">
+            </div>
+
+            <ul>
+                <li>
+                    Add a new <q>Snoopify</q> button to the HTML that makes the text in the text area uppercases when
+                    clicked.
+                    <ul>
+                        <li>
+                            Use the <code>value</code> property of the text area.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    Modify the button so that it also adds a suffix of <q>-izzle</q> to the last word of each sentence.
+                    <ul>
+                        <li>
+                            Consider a sentence to be a string of text that ends with a period character,
+                            <code><q>.</q></code> .
+                        </li>
+
+                        <li>
+                            Use the <code>String/array</code> methods <code>split</code> and <code>join</code>.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide12">
+            <h1>Ex <span class="exercisenumber noincrement">6</span>: screenshot</h1>
+
+            <p>
+                Your text should look like this when the button is clicked:
+            </p>
+
+            <div>
+                <img src="./CSE3026 Lab 8_ Pimp My Text_files/ex6_output.png" alt="expected output">
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide13">
+            <h1>Ex <span class="exercisenumber">7</span>: Font Timer</h1>
+
+            <ul>
+                <li>
+                    Modify the <q>Bigger Pimpin'!</q> button.
+                    On button click, rather than setting the font size to <code>24pt</code>, it should make the font in
+                    the text area <code>2pt larger</code> than its current size.
+                    <ul>
+                        <li>
+                            When the first time the button is clicked, the text area's <code>.style.fontSize</code>
+                            property won't have a value.
+                            So, in this case, just use a default of <code>12pt</code>.
+                        </li>
+
+                        <li>
+                            For future clicks, read the font size such as <code>12pt</code> and change it to a larger
+                            one like <code>14pt</code>.
+                        </li>
+
+                        <li>
+                            Hint: use the <code>parseInt</code> function.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    Once that works, make it use a <strong>timer</strong>.
+                    <ul>
+                        <li>
+                            A single click should continually increase the font size by <code>+2pt</code> every
+                            <code>500ms</code>.
+                        </li>
+
+                        <li>
+                            Use the <code>setInterval</code> function. The timer should call the function you just
+                            wrote.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide14">
+            <h1>Ex <span class="exercisenumber">8</span>: Unobtrusive JavaScript</h1>
+
+            <p>
+                Modify the <code>pimpmytext.html</code> and the <code>pimpmytext.js</code> to make the JavaScript
+                unobtrusive
+            </p>
+
+            <ul>
+                <li>
+                    move all the JavaScript from the <code>pimpmytext.html</code> to the <code>pimpmytext.js</code>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide15">
+            <h1>Ex <span class="exercisenumber">9</span>: More Gangsta</h1>
+
+            <p>
+                Try adding extra features if you have time :
+            </p>
+
+            <ul>
+                <li>
+                    When the <code>Bling</code> button is checked, also set the page to have a background image:
+
+                    <pre style="font-size: smaller">https://selab.hanyang.ac.kr/courses/cse326/2019/labs/images/8/hundred.jpg
+</pre>
+                </li>
+
+                <li>
+                    Add an <q>Igpay Atinlay</q> button that converts the text to Pig Latin. The rules:
+
+                    <ol>
+                        <li>
+                            Words beginning in a consonant (or consonant cluster) have that consonant (or consonant
+                            cluster) moved to the end and <em>-ay</em> tacked on following.
+                        </li>
+
+                        <li>
+                            Words beginning in a vowel simply have <em>-ay</em> tacked on the end.
+                        </li>
+                    </ol>
+                    <ul>
+                        <li>e.g, <code>pig</code> --&gt; <code>igpay</code>, <code>banana</code> --&gt;
+                            <code>ananabay</code>, <code>trash</code> --&gt; <code>ashtray</code></li>
+                    </ul>
+                </li>
+
+                <li>
+                    Add a <q>Malkovitch</q> button that causes words of &gt;= 5 characters in length to be replaced with
+                    the word <q>Malkovich</q>.
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide16">
+            <h1>If you finish them all...</h1>
+
+            <p>If you finish all the exercises:</p>
+
+            <ol>
+                <li>you can add any other content you like to your page</li>
+                <li><strong>check the correctness</strong> of your page with a TA if necessary</li>
+                <li>submit your <code>pimpmytext.html</code> and <code>pimpmytext.js</code> files to your
+                    <code>Git</code> repository under <code>lab08</code> folder</li>
+            </ol>
+
+            <p><strong>Great work!</strong></p>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

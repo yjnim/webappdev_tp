@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://selab.hanyang.ac.kr/courses/cse326/2019/lecture/13-webServices.html -->
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../slide.css">
+        <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../slide.js"></script>
+        <title>Web Services</title>
+    </head>
+
+<body>
+    <div class="layout">
+        <div id="controls">
+            <form action="https://selab.hanyang.ac.kr/courses/cse326/2019/lecture/13-webServices.html#" id="controlForm"
+                undefined="">
+                <div id="navLinks">
+                    <div id="navaLinks">
+                        <a accesskey="t" id="toggle" title="Print View"
+                            href="javascript:printView();">Ø</a>
+                        <a accesskey="z" id="prev" title="Previous Slide"
+                            href="javascript:moveSlide(-1);">«</a>
+                        <a accesskey="x" id="next" title="Next Slide"
+                            href="javascript:moveSlide(1);">»</a>
+                    </div>
+                    <div id="navList"><select id="jumplist" onchange="jumpSlide();">
+                            <option value="0 : CSE3026: Web Application Development  Web Services">0 : CSE3026: Web
+                                Application Development Web Services</option>
+                            <option value="1 : What is &quot;Web 2.0&quot;?">1 : What is "Web 2.0"?</option>
+                            <option value="2 : What is a web service?">2 : What is a web service?</option>
+                            <option value="3 : Setting content type with header">3 : Setting content type with header
+                            </option>
+                            <option value="4 : 
+		Recall: Content (&quot;MIME&quot;) types
+	">4 :
+                                Recall: Content ("MIME") types
+                            </option>
+                            <option value="5 : Example: Exponent web service">5 : Example: Exponent web service</option>
+                            <option value="6 : Using header to redirect between pages">6 : Using header to redirect
+                                between pages</option>
+                            <option value="7 : Exercise: (&quot;Baby name web service&quot;)">7 : Exercise: ("Baby name
+                                web service")</option>
+                            <option value="8 : What about errors?">8 : What about errors?</option>
+                            <option value="9 : Reporting errors">9 : Reporting errors</option>
+                            <option value="10 : Using headers for HTTP error codes">10 : Using headers for HTTP error
+                                codes</option>
+                            <option value="11 : Checking for a mandatory query parameter">11 : Checking for a mandatory
+                                query parameter</option>
+                            <option value="12 : The $_SERVER superglobal array">12 : The $_SERVER superglobal array
+                            </option>
+                            <option value="13 : GET or POST?">13 : GET or POST?</option>
+                            <option value="14 : Emitting partial-page HTML data">14 : Emitting partial-page HTML data
+                            </option>
+                            <option value="15 : Exercise: Baby name web service XML">15 : Exercise: Baby name web
+                                service XML</option>
+                            <option value="16 : Emitting XML data manually">16 : Emitting XML data manually</option>
+                            <option value="17 : PHP&#39;s XML DOM: DOMDocument">17 : PHP's XML DOM: DOMDocument</option>
+                            <option value="18 : PHP&#39;s XML DOM: DOMElement">18 : PHP's XML DOM: DOMElement</option>
+                            <option value="19 : PHP XML DOM example">19 : PHP XML DOM example</option>
+                            <option value="20 : Exercise solution: Baby name web service XML">20 : Exercise solution:
+                                Baby name web service XML</option>
+                            <option value="21 : Exercise: Baby name web service JSON">21 : Exercise: Baby name web
+                                service JSON</option>
+                            <option value="22 : Emitting JSON data manually">22 : Emitting JSON data manually</option>
+                            <option value="23 : PHP&#39;s JSON functions">23 : PHP's JSON functions</option>
+                            <option value="24 : PHP JSON example">24 : PHP JSON example</option>
+                            <option value="25 : PHP JSON example - output">25 : PHP JSON example - output</option>
+                        </select></div>
+                </div>
+            </form>
+        </div>
+        <div id="currentSlide">
+            <!-- DO NOT EDIT -->
+        </div>
+        <div id="header"></div>
+        <div id="footer">
+            <h1>CSE3026: Web Application Development</h1>
+            <h2>13. Web Services</h2>
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="slide" id="slide0">
+            <h1><span class="smallerFont">CSE3026: Web Application Development</span> <br> <strong>Web Services</strong>
+            </h1>
+            <br>
+            <h2>Scott Uk-Jin Lee</h2>
+
+            <p class="license">
+                Reproduced with permission of the authors.
+                Copyright 2012 Marty Stepp, Jessica Miller, and Victoria Kirst.
+                All rights reserved.
+                Further reproduction or distribution is prohibited without written permission.
+            </p>
+
+            <div class="w3c">
+                <a href="https://validator.w3.org/check/referer"><img
+                        src="./CSE3026 - 13. Web Services_files/w3c-html.png" alt="Valid HTML 5"></a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                        src="./CSE3026 - 13. Web Services_files/w3c-css.png" alt="Valid CSS!"></a>
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide1">
+            <h1>What is "Web 2.0"?</h1>
+
+            <div class="figure">
+                <img src="./CSE3026 - 13. Web Services_files/web-2-0.gif" alt="web 2.0">
+            </div>
+
+            <ul>
+                <li>
+                    <strong>Web 2.0</strong>: A set of ideas and technologies for creating modern, interactive web
+                    applications
+
+                    <ul>
+                        <li>
+                            Ajax, multimedia, streaming, stateful pages, cookies, user-generated content, web services,
+                            ...
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide2">
+            <h1>What is a web service?</h1>
+
+            <p>
+                <span class="term">web service</span>: software functionality that can be invoked through the internet
+                using common protocols
+            </p>
+
+            <ul>
+                <li>like a remote function(s) you can call by contacting a program on a web server</li>
+                <li>many web services accept parameters and produce results</li>
+                <li>can be written in PHP and contacted by the browser in HTML and/or Ajax code</li>
+                <li>service's output might be HTML but could be text, XML, JSON or other content</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide3">
+            <h1>Setting content type with <code>header</code></h1>
+
+            <pre class="syntaxtemplate php">header("Content-type: <var>type</var>/<var>subtype</var>");
+</pre>
+
+            <pre class="examplecode php"><em>header("Content-type: text/plain");</em>
+print "This output will appear as plain text now!\n";
+</pre>
+
+            <ul>
+                <li>by default, a PHP file's output is assumed to be HTML (text/html)</li>
+                <li>use the <a href="http://www.php.net/header"><code>header</code></a> function to specify non-HTML
+                    output
+                    <ul>
+                        <li>must appear before any other output generated by the script</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide4">
+            <h1>
+                Recall: Content ("<a href="http://en.wikipedia.org/wiki/Mime_type">MIME</a>") types
+            </h1>
+
+            <table class="standard">
+                <tbody>
+                    <tr class=" evenrow">
+                        <th>MIME type</th>
+                        <th class="slidetable">related file extension</th>
+                    </tr>
+                    <tr class="code">
+                        <td><strong>application/json</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr class="code evenrow">
+                        <td><strong>text/plain</strong></td>
+                        <td>.txt</td>
+                    </tr>
+                    <tr class="code">
+                        <td><strong>text/html</strong></td>
+                        <td>.html, .htm, ...</td>
+                    </tr>
+                    <tr class="code evenrow">
+                        <td><strong>text/xml</strong></td>
+                        <td>.xml</td>
+                    </tr>
+                    <tr class="code">
+                        <td>text/css</td>
+                        <td>.css</td>
+                    </tr>
+                    <tr class="code evenrow">
+                        <td>text/javascript</td>
+                        <td>.js</td>
+                    </tr>
+                    <tr class="code">
+                        <td>image/gif</td>
+                        <td>.gif</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li>Lists of MIME types: <a href="http://www.webmaster-toolkit.com/mime-types.shtml">by extension</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide5">
+            <h1>Example: Exponent web service</h1>
+
+            <ul>
+                <li>
+                    Write a web service that accepts a <code>base</code> and <code>exponent</code> and outputs
+                    <code>base</code> raised to the <code>exponent</code> power. For example, the following query should
+                    output <code>81</code> :
+
+                    <pre class="examplecode url">http://example.com/exponent.php?<em>base=3</em>&amp;<em>exponent=4</em>
+</pre>
+                </li>
+
+                <li class="">
+                    solution:
+
+                    <pre class="examplecode php">&lt;?php
+header("Content-type: text/plain");
+$base = (int) $_GET["base"];
+$exp  = (int) $_GET["exponent"];
+$result = pow($base, $exp);
+print $result;
+?&gt;
+</pre>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide6">
+            <h1>Using <code>header</code> to redirect between pages</h1>
+
+            <pre class="syntaxtemplate php">header("Location: <var>url</var>");
+</pre>
+
+            <pre class="examplecode php">if (!user_is_logged_in()) {
+    <em>header("Location: user-login.php");</em>
+}
+</pre>
+
+            <ul>
+                <li>you can use <code>header</code> to tell the browser to redirect itself to another page
+                    <ul>
+                        <li>must appear before any other output generated by the script</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide7">
+            <h1>Exercise: ("<a
+                    href="https://selab.hanyang.ac.kr/courses/cse326/2019/lecture/examples/13WebServices/babyNames.zip">Baby
+                    name web service</a>")</h1>
+
+            <ul>
+                <li>
+                    Write a web service that accepts a <code>name</code> and <code>gender</code> and finds and outputs
+                    the line from text file <code>rank.txt</code> with information about that name:
+
+                    <pre class="examplecode txt">Aaron m 147 193 187 199 250 237 230 178 52 34 34 41 55
+Lisa f 0 0 0 0 0 733 220 6 2 16 64 295 720
+...
+</pre>
+                </li>
+
+                <li>
+                    For the following call:
+
+                    <pre class="examplecode url">http://example.com/babynames.php?<em>name=Lisa</em>&amp;<em>gender=f</em>
+</pre>
+                </li>
+
+                <li>
+                    The service should output the following line:
+
+                    <pre class="examplecode txt">Lisa f 0 0 0 0 0 733 220 6 2 16 64 295 720
+</pre>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide8">
+            <h1>What about errors?</h1>
+
+            <ul>
+                <li>
+                    What if the user doesn't pass an important parameter?
+
+                    <pre class="examplecode url">http://example.com/babynames.php?<em class="bad">gender=f</em>               (no name passed!)
+</pre>
+                </li>
+
+                <li>
+                    What if the user passes a name that is not found in the file?
+
+                    <pre class="examplecode url">http://example.com/babynames.php?<em class="bad">name=Borat</em>&amp;gender=m    (not found in file)
+</pre>
+                </li>
+
+                <li>
+                    What is the appropriate behavior for the web service?
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide9">
+            <h1>Reporting errors</h1>
+
+            <ul>
+                <li>web service should return an HTTP "error code" to the browser, possibly followed by output
+                    <ul>
+                        <li>
+                            error messages (<code>print</code>) are not ideal, because they could be confused for normal
+                            output
+                        </li>
+                        <li>
+                            these are the codes you see in Firebug's console and in your Ajax request's
+                            <code>status</code> property
+                        </li>
+                    </ul>
+
+                    <table class="standard compressed">
+                        <tbody>
+                            <tr class=" evenrow">
+                                <th class="spaced">HTTP code</th>
+                                <th>Meaning</th>
+                            </tr>
+                            <tr>
+                                <td>200</td>
+                                <td>OK</td>
+                            </tr>
+                            <tr class=" evenrow">
+                                <td>301-303</td>
+                                <td>page has moved (permanently or temporarily)</td>
+                            </tr>
+                            <tr>
+                                <td>400</td>
+                                <td>illegal request</td>
+                            </tr>
+                            <tr class=" evenrow">
+                                <td>401</td>
+                                <td>authentication required</td>
+                            </tr>
+                            <tr>
+                                <td>403</td>
+                                <td>you are forbidden to access this page</td>
+                            </tr>
+                            <tr class=" evenrow">
+                                <td>404</td>
+                                <td>page not found</td>
+                            </tr>
+                            <tr>
+                                <td>410</td>
+                                <td>gone; missing data or resource</td>
+                            </tr>
+                            <tr class=" evenrow">
+                                <td>500</td>
+                                <td>internal server error</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="completelist"><a
+                                        href="http://en.wikipedia.org/wiki/Http_error_codes">complete list</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide10">
+            <h1>Using headers for HTTP error codes</h1>
+
+            <pre class="syntaxtemplate php">header("HTTP/1.1  <var>code</var>  <var>description</var>");
+</pre>
+
+            <pre class="examplecode php">if ($_GET["foo"] != "bar") {
+    <span class="comment"># I am not happy with the value of foo; this is an error</span>
+    <em>header("HTTP/1.1 400 Invalid Request");</em>
+    die("An HTTP error 400 (invalid request) occurred.");
+}
+</pre>
+
+            <pre class="examplecode php">if (!file_exists($input_file_path)) {
+    <em>header("HTTP/1.1 404 File Not Found");</em>
+    die("HTTP error 404 occurred: File not found ($input_file_path)");
+}
+</pre>
+
+            <ul>
+                <li>
+                    <code>header</code> can also be used to send back HTTP error codes
+
+                    <ul>
+                        <li><code>header("HTTP/1.1 403 Forbidden");</code></li>
+                        <li><code>header("HTTP/1.1 404 File Not Found");</code></li>
+                        <li><code>header("HTTP/1.1 500 Server Error");</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide11">
+            <h1>Checking for a mandatory query parameter</h1>
+
+            <pre class="examplecode php">function get_query_param($name) {
+    if (!isset($_GET[$name])) {
+        header("HTTP/1.1 400 Invalid Request");
+        die("HTTP/1.1 400 Invalid Request: missing required parameter '$name'");
+    }
+    if ($_GET[$name] == "") {
+        header("HTTP/1.1 400 Invalid Request");
+        die("HTTP/1.1 400 Invalid Request: parameter '$name' must be non-empty");
+    }
+    return $_GET[$name];
+}
+</pre>
+        </div>
+
+
+
+        <div class="slide" id="slide12">
+            <h1>The <a href="http://www.php.net/manual/en/reserved.variables.server.php"><code>$_SERVER</code></a>
+                superglobal array</h1>
+
+            <table class="standard">
+                <tbody>
+                    <tr class=" evenrow">
+                        <th>index</th>
+                        <th>description</th>
+                        <th>example</th>
+                    </tr>
+
+                    <tr>
+                        <td><code>$_SERVER["SERVER_NAME"]</code></td>
+                        <td>name of this web server</td>
+                        <td><code>"www.hanyang.ac.kr"</code></td>
+                    </tr>
+
+                    <tr class=" evenrow">
+                        <td><code>$_SERVER["SERVER_ADDR"]</code></td>
+                        <td>IP address of web server</td>
+                        <td><code>"166.203.253.194"</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><code>$_SERVER["REMOTE_HOST"]</code></td>
+                        <td>user's domain name</td>
+                        <td><code>"selab.hanyang.ac.kr"</code></td>
+                    </tr>
+
+                    <tr class=" evenrow">
+                        <td><code>$_SERVER["REMOTE_ADDR"]</code></td>
+                        <td>user's IP address</td>
+                        <td><code>"186.205.232.161"</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><code>$_SERVER["HTTP_USER_AGENT"]</code></td>
+                        <td>user's web browser</td>
+                        <td><code>"Mozilla/5.0 (Windows; ..."</code></td>
+                    </tr>
+
+                    <tr class=" evenrow">
+                        <td><code>$_SERVER["HTTP_REFERER"]</code></td>
+                        <td>where user was before this page</td>
+                        <td><code>"http://www.google.com/"</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><code>$_SERVER["REQUEST_METHOD"]</code></td>
+                        <td>HTTP method used to contact server</td>
+                        <td><code>"GET"</code> or <code>"POST"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    call <a href="http://www.php.net/phpinfo"><code>phpinfo();</code></a> to see a complete list
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide13">
+            <h1>GET or POST?</h1>
+
+            <pre class="examplecode php">if (<em>$_SERVER["REQUEST_METHOD"]</em> == "GET") {
+    <span class="comment"># process a GET request</span>
+    <var>...</var>
+} elseif (<em>$_SERVER["REQUEST_METHOD"]</em> == "POST") {
+    <span class="comment"># process a POST request</span>
+    <var>...</var>
+}
+</pre>
+
+            <ul>
+                <li>some web services process both GET and POST requests</li>
+                <li>to find out which kind of request we are currently processing, <br>
+                    look at the global <code>$_SERVER</code> array's <code>"REQUEST_METHOD"</code> element</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide14">
+            <h1>Emitting partial-page HTML data</h1>
+
+            <pre class="examplecode php"><span class="comment"># suppose my web service accepts a "type" query parameter ...</span>
+&lt;?php if ($_GET["type"] == "html") { ?&gt;
+    <em>&lt;ul&gt;</em>
+        &lt;?php foreach ($students as $kid) { ?&gt;
+            <em>&lt;li&gt; &lt;?= $kid ?&gt; &lt;/li&gt;</em>
+        &lt;?php } ?&gt;
+    <em>&lt;/ul&gt;</em>
+&lt;?php } ?&gt;
+</pre>
+
+            <ul>
+                <li>
+                    some web services do output HTML, but not a complete page
+                </li>
+                <li>
+                    the partial-page HTML is meant to be fetched by Ajax and injected into an existing page
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide15">
+            <h1>Exercise: Baby name web service XML</h1>
+
+            <ul>
+                <li>
+                    Modify the <code>babynames.php</code> service to produce its output as XML. For the data:
+
+                    <pre class="examplecode txt">Morgan m 375 410 392 478 579 507 636 499 446 291 278 332 518
+</pre>
+                </li>
+
+                <li>
+                    The service should output the following XML:
+
+                    <pre class="examplecode txt">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;baby name="Morgan" gender="m"&gt;
+    &lt;rank year="1890"&gt;375&lt;/rank&gt;
+    &lt;rank year="1900"&gt;410&lt;/rank&gt;
+    ...
+    &lt;rank year="2010"&gt;518&lt;/rank&gt;
+&lt;/baby&gt;
+</pre>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide16">
+            <h1>Emitting XML data manually</h1>
+
+            <pre class="examplecode php">...
+header("Content-type: text/xml");
+print "<em>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;</em>\n";
+print "<em>&lt;books&gt;</em>\n";
+foreach ($books as $book) {
+    print "  <em>&lt;book title=\"{$book['title']}\" author=\"{$book['author']}\" /&gt;</em>\n";
+}
+print "<em>&lt;/books&gt;</em>\n";
+</pre>
+
+            <ul>
+                <li>
+                    specify a content type of <code>text/xml</code> or <code>application/xml</code>
+                </li>
+                <li>
+                    print an XML prologue (the <code>&lt;?xml</code> line), then print XML data as output
+                    <ul>
+                        <li>
+                            <strong>important:</strong> no whitespace output can precede the prologue; must be
+                            <code>print</code>ed
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    messy; bad to embed XML syntax in <code>print</code>s; write-only (hard to read existing XML data)
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide17">
+            <h1>PHP's XML DOM: DOMDocument</h1>
+
+            <p>
+                The PHP <a class="popup" href="http://php.net/manual/en/class.domdocument.php"
+                    target="_blank"><code>DOMDocument</code></a> class represents an XML document. It has these methods:
+            </p>
+
+            <table class="standard compressed">
+                <tbody>
+                    <tr class=" evenrow">
+                        <td>
+                            <code>createElement(<var>tag</var>)</code>
+                        </td>
+                        <td>
+                            create a new element node to add to the document
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>createTextNode(<var>text</var>)</code>
+                        </td>
+                        <td>
+                            create a new text node to add to the document
+                        </td>
+                    </tr>
+                    <tr class=" evenrow">
+                        <td>
+                            <code>getElementById(<var>id</var>)</code>, <br>
+                            <code>getElementsByTagName(<var>tag</var>)</code>
+                        </td>
+                        <td>
+                            search for elements in the document
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>load(<var>filename</var>)</code>, <br>
+                            <code>loadXML(<var>string</var>)</code>
+                        </td>
+                        <td>
+                            read XML data from a file on disk or from a string
+                        </td>
+                    </tr>
+                    <tr class=" evenrow">
+                        <td>
+                            <code>save(<var>filename</var>)</code>, <br>
+                            <code>saveXML()</code>
+                        </td>
+                        <td>
+                            write XML data to a file on disk or returns it as a string
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>validate()</code>
+                        </td>
+                        <td>
+                            return whether the current document consists of valid XML data
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="slide" id="slide18">
+            <h1>PHP's XML DOM: DOMElement</h1>
+
+            <p>
+                The PHP <a class="popup" href="http://www.php.net/manual/en/class.domelement.php"
+                    target="_blank"><code>DOMElement</code></a> class represents each DOM element. It has these
+                fields/methods:
+            </p>
+
+            <table class="standard compressed">
+                <tbody>
+                    <tr class=" evenrow">
+                        <td>
+                            <code>tagName</code>, <code>nodeValue</code>
+                        </td>
+                        <td>
+                            node's name (tag) and value (text)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>parentNode</code>, <code>childNodes</code>, <br>
+                            <code>firstChild</code>, <code>lastChild</code>, <br>
+                            <code>previousSibling</code>, <code>nextSibling</code>
+                        </td>
+                        <td>
+                            references to nearby nodes
+                        </td>
+                    </tr>
+                    <tr class=" evenrow">
+                        <td>
+                            <code>appendChild(<var>DOMNode</var>)</code>, <br>
+                            <code>insertBefore(<var>newNode</var>, <var>oldNode</var>)</code>, <br>
+                            <code>removeChild(<var>DOMNode</var>)</code>
+                        </td>
+                        <td>
+                            manipulate this node's list of children
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>getElementsByTagName(<var>tag</var>)</code>
+                        </td>
+                        <td>
+                            search for descendent elements within this element
+                        </td>
+                    </tr>
+                    <tr class=" evenrow">
+                        <td>
+                            <code>getAttribute(<var>name</var>)</code>, <br>
+                            <code>setAttribute(<var>name</var>, <var>value</var>)</code>, <br>
+                            <code>removeAttribute(<var>name</var>)</code>
+                        </td>
+                        <td>
+                            get/set the value of an attribute on this tag
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="slide" id="slide19">
+            <h1>PHP XML DOM example</h1>
+
+            <pre class="examplecode php">...
+$xmldoc = new DOMDocument();                          <span class="comment"># &lt;?xml version="1.0"?&gt;</span>
+$books_tag = $xmldoc-&gt;createElement("books");
+$xmldoc-&gt;appendChild($books_tag);                     <span class="comment"># &lt;books&gt;</span>
+foreach ($books as $book) {                                  
+    $book_tag = $xmldoc-&gt;createElement("book");         <span class="comment">#   &lt;book</span>
+    $book_tag-&gt;setAttribute("title", $book["title"]);   <span class="comment">#    title="Harry Potter" /&gt;</span>
+    $book_tag-&gt;setAttribute("author", $book["author"]); <span class="comment">#    author="J.K. Rowling" /&gt;</span>
+    $books_tag-&gt;appendChild($book_tag);                      
+}                                                     <span class="comment"># &lt;/books&gt;</span>
+header("Content-type: text/xml");
+print $xmldoc-&gt;saveXML();
+</pre>
+
+            <ul>
+                <li>much easier to read/write/manipulate complex XML</li>
+                <li><code>saveXML</code> automatically inserts the XML prolog for us</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide20">
+            <h1>Exercise solution: Baby name web service XML</h1>
+
+            <pre class="examplecode php compressed"># takes a line of rankings and produces XML in the specified format
+# example:  Aaron m 147 193 187 199 250 237 230 178 52 34 34 41 55
+function generate_xml($line, $name, $gender) {
+    $xmldom = new DOMDocument();
+    $baby_tag = $xmldom-&gt;createElement("baby");     # &lt;baby&gt;
+    $baby_tag-&gt;setAttribute("name", $name);
+    $baby_tag-&gt;setAttribute("gender", $gender);
+    
+    $year = 1890;
+    $tokens = explode(" ", $line);
+    for ($i = 2; $i &lt; count($tokens); $i++) {
+        $rank_tag = $xmldom-&gt;createElement("rank");   # &lt;rank&gt;
+        $rank_tag-&gt;setAttribute("year", $year);
+        $rank_tag-&gt;appendChild($xmldom-&gt;createTextNode($tokens[$i]));
+        $baby_tag-&gt;appendChild($rank_tag);
+        $year += 10;
+    }
+    
+    $xmldom-&gt;appendChild($baby_tag);
+    return $xmldom;
+}
+</pre>
+        </div>
+
+
+
+        <div class="slide" id="slide21">
+            <h1>Exercise: Baby name web service JSON</h1>
+
+            <ul>
+                <li>
+                    Modify the <code>babynames.php</code> service to produce its output as JSON. For the data:
+
+                    <pre class="examplecode txt">Morgan m 375 410 392 478 579 507 636 499 446 291 278 332 518
+</pre>
+                </li>
+
+                <li>
+                    The service should output the following JSON:
+
+                    <pre class="examplecode txt">{
+    name: "Morgan",
+    gender: "m",
+    rankings: [375, 410, 392, 478, 579, 507, 636, 499, 446, 291, 278, 332, 518]
+}
+</pre>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide22">
+            <h1>Emitting JSON data manually</h1>
+
+            <pre class="examplecode php">...
+header("Content-type: application/json");
+print "{\n";
+print "  \"books\": [\n";
+foreach ($books as $book) {
+    print "  {\"title\": \"$title\"}\n";
+}
+print "]\n";
+</pre>
+
+            <ul>
+                <li>
+                    specify a content type of <code>application/json</code>
+                </li>
+                <li>
+                    messy; bad to write JSON text using <code>print</code>s; write-only (hard to read existing JSON
+                    data)
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide23">
+            <h1>PHP's JSON functions</h1>
+
+            <p>
+                PHP includes the following global functions for interacting with JSON data:
+            </p>
+
+            <table class="standard">
+                <tbody>
+                    <tr class=" evenrow">
+                        <td>
+                            <a class="popup" href="http://www.php.net/manual/en/function.json-decode.php"
+                                target="_blank"><code>json_decode(<var>string</var>)</code></a>
+                        </td>
+                        <td>
+                            parses the given JSON data string and returns an equivalent associative array object (like
+                            <code>JSON.parse</code> in JavaScript)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="popup" href="http://www.php.net/manual/en/function.json-encode.php"
+                                target="_blank"><code>json_encode(<var>object</var>)</code></a>
+                        </td>
+                        <td>
+                            returns JSON equivalent for the given object or array or value (like
+                            <code>JSON.stringify</code> in JavaScript)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    <code>json_encode</code> will output associative arrays as objects and normal arrays as arrays
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide24">
+            <h1>PHP JSON example</h1>
+
+            <pre class="examplecode php">&lt;?php
+$data = array(
+    "library" =&gt; "Odegaard",
+    "category" =&gt; "fantasy",
+    "year" =&gt; 2012,
+    "books" =&gt; array(
+        array("title" =&gt; "Harry Potter", "author" =&gt; "J.K. Rowling"),
+        array("title" =&gt; "The Hobbit", "author" =&gt; "J.R.R. Tolkien"),
+        array("title" =&gt; "Game of Thrones", "author" =&gt; "George R. R. Martin"),
+        array("title" =&gt; "Dragons of Krynn", "author" =&gt; "Margaret Weis"),
+    )
+);
+
+header("Content-type: application/json");
+print <em>json_encode($data)</em>;
+?&gt;
+</pre>
+        </div>
+
+
+
+        <div class="slide" id="slide25">
+            <h1>PHP JSON example - output</h1>
+
+            <pre class="examplecode json">{
+    "library": "Odegaard",
+    "category": "fantasy",
+    "year": 2012,
+    "books": [
+        {"title": "Harry Potter", "author": "J.K. Rowling"},
+        {"title": "The Hobbit", "author": "J.R.R. Tolkien"},
+        {"title": "Game of Thrones", "author": "George R. R. Martin"},
+        {"title": "Dragons of Krynn", "author": "Margaret Weis"},
+    ]
+}
+</pre>
+        </div>
+
+
+
+    </div><!-- end div class="presentation" -->
+
+</body>
+
+</html>

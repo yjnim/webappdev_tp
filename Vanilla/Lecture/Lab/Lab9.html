@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab9-maze.html -->
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../slide.css">
+        <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../slide.js"></script>
+        <title>Maze (DOM, Prototype, Event)- Week 13</title>
+    </head>
+
+<body>
+    <div class="layout">
+        <div id="controls">
+            <form action="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab9-maze.html#" id="controlForm"
+                undefined="">
+                <div id="navLinks">
+                    <div id="navaLinks">
+                        <a accesskey="t" id="toggle" title="Print View"
+                            href="javascript:printView();">Ø</a>
+                        <a accesskey="z" id="prev" title="Previous Slide"
+                            href="javascript:moveSlide(-1);">«</a>
+                        <a accesskey="x" id="next" title="Next Slide"
+                            href="javascript:moveSlide(1);">»</a>
+                    </div>
+                    <div id="navList"><select id="jumplist" onchange="jumpSlide();">
+                            <option value="0 : CSE3026: Web Application Development  Lab 9: Maze">0 : CSE3026: Web
+                                Application Development Lab 9: Maze</option>
+                            <option value="1 : Lab 9 : Maze">1 : Lab 9 : Maze</option>
+                            <option value="2 : About the Maze">2 : About the Maze</option>
+                            <option value="3 : Constraints">3 : Constraints</option>
+                            <option value="4 : Ex 1: Single boundary turn red">4 : Ex 1: Single boundary turn red
+                            </option>
+                            <option value="5 : Ex 2: All boundaries turn red">5 : Ex 2: All boundaries turn red</option>
+                            <option value="6 : Ex 3: Alert on completion of maze">6 : Ex 3: Alert on completion of maze
+                            </option>
+                            <option value="7 : Ex 4: Restartable maze">7 : Ex 4: Restartable maze</option>
+                            <option value="8 : Ex 5: On-page status updates">8 : Ex 5: On-page status updates</option>
+                            <option value="9 : Ex 6: Disallow cheating">9 : Ex 6: Disallow cheating</option>
+                            <option value="10 : Ex 7: JSLint">10 : Ex 7: JSLint</option>
+                            <option value="11 : Ex 8: Proper maze completion - Extra ">11 : Ex 8: Proper maze completion
+                                - Extra </option>
+                            <option value="12 : If you finish them all...">12 : If you finish them all...</option>
+                        </select></div>
+                </div>
+            </form>
+        </div>
+        <div id="currentSlide">
+            <!-- DO NOT EDIT -->
+        </div>
+        <div id="header"></div>
+        <div id="footer">
+            <h1>CSE3026: Web Application Development</h1>
+            <h2>Lab 9: Maze</h2>
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="slide" id="slide0">
+            <h1><span class="smallerFont">CSE3026: Web Application Development</span> <br> <strong>Lab 9: Maze</strong>
+            </h1>
+            <br>
+            <h2>Scott Uk-Jin Lee</h2>
+
+            <p class="license">
+                Except where otherwise noted, the contents of this document are
+                Copyright 2019 Scott Uk-Jin Lee.
+
+                All rights reserved.
+                Any redistribution, reproduction, transmission, or storage of part
+                or all of the contents in any form is prohibited without the author's
+                expressed written permission.
+            </p>
+
+            <div class="w3c">
+                <a href="https://validator.w3.org/check/referer"><img src="./CSE3026 Lab 9_ Maze_files/w3c-html.png"
+                        alt="Valid HTML5"></a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                        src="./CSE3026 Lab 9_ Maze_files/w3c-css.png" alt="Valid CSS"></a>
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide1">
+            <h1>Lab 9 : Maze</h1>
+
+            <p>
+                Create a <strong>maze</strong> to navigate with mouse as shown below.
+            </p>
+
+            <div>
+                <img src="./CSE3026 Lab 9_ Maze_files/output.png" alt="expected output">
+            </div>
+
+        </div>
+
+
+        <div class="slide" id="slide2">
+            <h1>About the Maze</h1>
+
+            <p>
+                Download <a class="popup"
+                    href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/maze.html"
+                    target="_blank"><code>maze.html</code></a> to get started! <br>
+            </p>
+
+            <p>
+                The rule of the game is to move the mouse through the maze <strong>without touching any walls</strong>.
+                When the mouse cursor touches a wall, all walls turn red and a "You lose" message shows.
+                Touching the Start button with the mouse removes the red coloring from the walls.
+            </p>
+
+            <p>
+                The maze walls are 5 <code>div</code> elements. Our provided CSS puts the <code>div</code>s into their
+                proper places.
+            </p>
+
+            <pre>&lt;div id="maze"&gt;
+    &lt;div id="start"&gt;S&lt;/div&gt;
+    &lt;div class="boundary" id="boundary1"&gt;&lt;/div&gt;
+    &lt;div class="boundary"&gt;&lt;/div&gt;
+    &lt;div class="boundary"&gt;&lt;/div&gt;
+    &lt;div class="boundary"&gt;&lt;/div&gt;
+    &lt;div class="boundary"&gt;&lt;/div&gt;
+    &lt;div id="end"&gt;E&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+        </div>
+
+
+        <div class="slide" id="slide3">
+            <h1>Constraints</h1>
+
+            <p>In this lab exercises, you must satisfy the following constraints.</p>
+
+            <ul>
+                <li>Do not modify the given <code>maze.html</code></li>
+                <li>Use only the Prototype library (do not use or import any other JS library).</li>
+                <li>Do not write extra <code>function</code> in <code>maze.js</code> (all the necessary skeleton
+                    function is given).</li>
+
+                <li>Write all your JavaScript code <strong>unobtrusively</strong>!</li>
+                <li>must use <q><code>use strict</code></q> in your JavaScript.</li>
+                <li>Format your JavaScript as readable as possible. Use proper indentation.</li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide4">
+            <h1>Ex <span class="exercisenumber">1</span>: Single boundary turn red</h1>
+
+            <div style="float: right; margin-left: 1em">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex1_output.png" alt="expected output">
+            </div>
+
+            <p>
+                Download <a class="popup"
+                    href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/maze.js"
+                    target="_blank"><code>maze.js</code></a> and
+                write code so that when the user moves the mouse onto a single one of the maze's walls
+                (<code>onmouseover</code>), that wall will <strong>turn red</strong>.
+            </p>
+            <ul>
+                <li>Use the top-left wall; it is easier because it has an <code>id</code> of <code>boundary1</code></li>
+                <li> Write a <code>window.onload</code> handler that sets up any event handlers</li>
+                <li> Handle the event on the wall by making it turn red</li>
+                <li> Turn the wall red by setting it to have the provided CSS class <code>youlose</code>, using
+                    Prototype's <code>addClassName</code> method</li>
+            </ul>
+        </div>
+
+
+        <div class="slide" id="slide5">
+            <h1>Ex <span class="exercisenumber">2</span>: All boundaries turn red</h1>
+
+            <p>Write the code in the <code>maze.js</code> so that <strong><em>all</em> maze walls turn red</strong> when
+                the mouse enters any one of them.</p>
+
+            <ul>
+                <li> Attach an event handler to each <code>div</code> that represents a wall of the maze
+                    <ul>
+                        <li>it is harder to select all of these <code>div</code>s, since they do not have
+                            <code>id</code> attributes</li>
+                        <li>But they do all have a <code>class</code> of <code>boundary</code></li>
+                        <li>Use Prototype's <strong><code>$$</code> function</strong> to access them all</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div style="margin-top: 1em; text-align: center;">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex2_output.png" alt="expected output">
+            </div>
+
+        </div>
+
+
+        <div class="slide" id="slide6">
+            <h1>Ex <span class="exercisenumber">3</span>: Alert on completion of maze</h1>
+
+            <p>
+                Write the code in the <code>maze.js</code> so that if the user reaches the end of the maze, a <q>You
+                    win!</q> or <q>You lose!</q> <code>alert</code> message appears.
+            </p>
+
+            <ul>
+                <li> The end of the maze is a <code>div</code> with an <code>id</code> of <code>end</code></li>
+                <li>Don't pop up "You win!" unless the user makes it to the end <strong>without touching any
+                        walls</strong></li>
+                <li>Keep track of whether any walls were hit, so you'll know what to do when the end square is hit</li>
+            </ul>
+
+            <div style="margin-top: 1em; text-align: center;">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex3a_output.png" alt="expected output" style="margin-right: 50px">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex3b_output.png" alt="expected output">
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide7">
+            <h1>Ex <span class="exercisenumber">4</span>: Restartable maze</h1>
+
+            <p>
+                Write the code in the <code>maze.js</code> so that when the user clicks the mouse on the
+                <strong>Start</strong> square (a <code>div</code> with an <code>id</code> of <code>start</code>), the
+                maze state will <strong>reset</strong>.
+                That is, if the maze boundary walls are red, they will all return to their normal color, so that the
+                user can try to get through the maze again.
+            </p>
+
+            <ul>
+                <li>Use the <code>$$</code> function again to select all of the squares to set their color</li>
+            </ul>
+
+            <div style="margin-top: 1em; text-align: center;">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex4a_output.png" alt="expected output" style="margin-right: 50px">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex4b_output.png" alt="expected output">
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide8">
+            <h1>Ex <span class="exercisenumber">5</span>: On-page status updates</h1>
+
+            <p>
+                Instead of an <code>alert</code>, make the <q>You win!</q> and <q>You lose!</q> messages appear
+                <strong>in the page</strong> itself.
+            </p>
+
+            <ul>
+                <li>The page has an (initially empty) <code>h2</code> element on the page with an <code>id</code> of
+                    <code>status</code></li>
+                <li>Put the win/lose text into that <code>div</code> when the user finishes the maze</li>
+            </ul>
+
+            <div style="margin-top: 1em; text-align: center;">
+                <img src="./CSE3026 Lab 9_ Maze_files/ex5_output.png" alt="expected output">
+            </div>
+
+
+            <div class="slide" id="slide9">
+                <h1>Ex <span class="exercisenumber">6</span>: Disallow cheating</h1>
+
+                <p>It's too easy to <strong>cheat</strong>: Just move your mouse around the outside of the maze!</p>
+
+                <ul>
+                    <li>Write the code in the <code>maze.js</code> to fix this by making it so that
+                        if the user moves the mouse anywhere outside the maze after clicking the Start area,
+                        the walls will light up red and the player will lose the game.
+                    </li>
+                    <li>
+                        To do this, you'll need to listen to other kinds of mouse events on other elements.
+                    </li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <img src="./CSE3026 Lab 9_ Maze_files/ex6_output.png" alt="expected output">
+                </div>
+            </div>
+
+
+            <div class="slide" id="slide10">
+                <h1>Ex <span class="exercisenumber">7</span>: JSLint</h1>
+                <ul>
+                    <li>
+                        Verify your JavaScript code by making sure it passes <a class="popup"
+                            href="http://selab.hanyang.ac.kr/courses/cse326/2019/JSLint/"
+                            target="_blank"><strong>JSLint</strong></a> with no errors.
+                    </li>
+                </ul>
+
+                <div style="margin-top: 1em; text-align: center;">
+                    <img src="./CSE3026 Lab 9_ Maze_files/ex7_output.png" alt="expected output">
+                </div>
+
+            </div>
+
+
+            <div class="slide" id="slide11">
+                <h1>Ex <span class="exercisenumber">8</span>: Proper maze completion - Extra </h1>
+                <p>
+                    Write the code in the <code>maze.js</code>
+                    so that when the user reaches the end of the maze <strong>without touching any wall</strong> (wins
+                    the maze game)
+                    all boundaries should not further turn red <strong>until the <em>Start</em> square is
+                        clicked</strong>. This is when :
+
+                </p>
+                <ul>
+                    <li>mouse enters the walls after the game is <strong>won</strong></li>
+                    <li>mouse moves around outside the maze after the game is <strong>won</strong></li>
+                </ul>
+
+                <div style="margin-top: 1em; text-align: center;">
+                    <img src="./CSE3026 Lab 9_ Maze_files/ex8a_output.png" alt="expected output"
+                        style="margin-right: 50px">
+                    <img src="./CSE3026 Lab 9_ Maze_files/ex8b_output.png" alt="expected output">
+                </div>
+            </div>
+
+
+            <div class="slide" id="slide12">
+                <h1>If you finish them all...</h1>
+
+                <p>If you finish all the exercises:</p>
+
+                <ol>
+                    <li>you can add any other content you like to your page</li>
+                    <li><strong>check the correctness</strong> of your page with a TA if necessary</li>
+                    <li>submit your <code>maze.js</code> file to your <code>Git</code> repository under
+                        <code>lab09</code> folder</li>
+                </ol>
+                <p><strong>Great work!</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

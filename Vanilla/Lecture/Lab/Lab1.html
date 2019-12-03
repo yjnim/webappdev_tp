@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab1-aboutme(HTML).html -->
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../slide.css">
+        <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../slide.js"></script>
+        <title>About Me (HTML) - Week 4</title>
+    </head>
+
+<body>
+    <div class="layout">
+        <div id="controls">
+            <form action="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab1-aboutme(HTML).html#"
+                id="controlForm" undefined="">
+                <div id="navLinks">
+                    <div id="navaLinks">
+                        <a accesskey="t" id="toggle" title="Print View"
+                            href="javascript:printView();">Ø</a>
+                        <a accesskey="z" id="prev" title="Previous Slide"
+                            href="javascript:moveSlide(-1);">«</a>
+                        <a accesskey="x" id="next" title="Next Slide"
+                            href="javascript:moveSlide(1);">»</a>
+                    </div>
+                    <div id="navList"><select id="jumplist" onchange="jumpSlide();">
+                            <option value="0 : CSE3026: Web Application Development  Lab 1: Basic HTML">0 : CSE3026: Web
+                                Application Development Lab 1: Basic HTML</option>
+                            <option value="1 : Lab 1 exercises">1 : Lab 1 exercises</option>
+                            <option value="2 : Ex 1: Basic About Me Page">2 : Ex 1: Basic About Me Page</option>
+                            <option value="3 : Ex 1 example">3 : Ex 1 example</option>
+                            <option value="4 : Ex 2: Courses @ HYU">4 : Ex 2: Courses @ HYU</option>
+                            <option value="5 : Ex 2 example">5 : Ex 2 example</option>
+                            <option value="6 : Ex 3: Favorite Movies">6 : Ex 3: Favorite Movies</option>
+                            <option value="7 : Ex 3 example">7 : Ex 3 example</option>
+                            <option value="8 : Ex 3: Favorite Thing">8 : Ex 3: Favorite Thing</option>
+                            <option value="9 : Ex 3 example">9 : Ex 3 example</option>
+                            <option value="10 : Ex 3: Favorite Quote">10 : Ex 3: Favorite Quote</option>
+                            <option value="11 : Ex 3 example">11 : Ex 3 example</option>
+                            <option value="12 : Ex 4: Fun Facts About Neighbors">12 : Ex 4: Fun Facts About Neighbors
+                            </option>
+                            <option value="13 : Ex 4 example">13 : Ex 4 example</option>
+                            <option value="14 : Ex 5: YouTube Video">14 : Ex 5: YouTube Video</option>
+                            <option value="15 : Ex 5 example">15 : Ex 5 example</option>
+                            <option value="16 : Ex 6: Additional Content">16 : Ex 6: Additional Content</option>
+                            <option value="17 : Ex 6 example">17 : Ex 6 example</option>
+                            <option value="18 : Ex 7: Validation Links">18 : Ex 7: Validation Links</option>
+                            <option value="19 : Ex 7 example">19 : Ex 7 example</option>
+                            <option value="20 : Exercise 8: Validate your page">20 : Exercise 8: Validate your page
+                            </option>
+                            <option value="21 : Exercise 9: Upload your page">21 : Exercise 9: Upload your page</option>
+                            <option value="22 : If you finish them all...">22 : If you finish them all...</option>
+                        </select></div>
+                </div>
+            </form>
+        </div>
+        <div id="currentSlide">
+            <!-- DO NOT EDIT -->
+        </div>
+        <div id="header"></div>
+        <div id="footer">
+            <h1>CSE3026: Web Application Development</h1>
+            <h2>Lab 1: Basic HTML</h2>
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="slide" id="slide0">
+            <h1><span class="smallerFont">CSE3026: Web Application Development</span> <br> <strong>Lab 1: Basic
+                    HTML</strong></h1>
+            <br>
+            <h2>Scott Uk-Jin Lee</h2>
+
+            <p class="license">
+                Except where otherwise noted, the contents of this document are
+                Copyright 2019 Scott Uk-Jin Lee.
+
+                All rights reserved.
+                Any redistribution, reproduction, transmission, or storage of part
+                or all of the contents in any form is prohibited without the author's
+                expressed written permission.
+            </p>
+
+            <div class="w3c">
+                <a href="https://validator.w3.org/check/referer"><img
+                        src="./CSE3026 Lab 1_ Basic HTML_files/w3c-html.png" alt="Valid HTML5"></a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                        src="./CSE3026 Lab 1_ Basic HTML_files/w3c-css.png" alt="Valid CSS"></a>
+            </div>
+        </div>
+
+
+
+        <div class="slide" id="slide1">
+            <h1>Lab 1 exercises</h1>
+
+            <p>
+                Lab 1: Basic HTML - create a basic "About Me" HTML page.
+            </p>
+
+            <ol>
+                <li>Basic <q>About Me</q> Page</li>
+                <li>Courses @ HYU</li>
+                <li>Favorite Movie, Thing, and Quote</li>
+                <li>Fun Facts About My Neighbors</li>
+                <li>YouTube Video</li>
+                <li>Additional Content</li>
+                <li>Validation Links</li>
+                <li>Validate Your Page</li>
+                <li>Upload Your Page</li>
+            </ol>
+        </div>
+
+
+
+        <div class="slide" id="slide2">
+            <h1>Ex <span class="exercisenumber">1</span>: Basic <q>About Me</q> Page</h1>
+
+            <p>
+                Create a page <code>aboutme.html</code> that describes you. The page should include the followings:
+            </p>
+
+            <ul>
+                <li>page title: About <em>your name</em>!</li>
+                <li>character encoding: UTF-8</li>
+                <li>page heading: your name</li>
+                <li>favicon: attach your favorite icon or image</li>
+                <li>a description of you in &lt;= 2 sentences
+                    <ul>
+                        <li>emphasize an important word in italic</li>
+                        <li>strongly emphasize more important words in bold</li>
+                    </ul>
+                </li>
+                <li>a horizontal line</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide3">
+            <h1>Ex <span class="exercisenumber noincrement">1</span> example</h1>
+
+            <p>
+                This example page describes course lecturer Scott Lee. <br>
+                Look at the <a class="popup" href="https://selab.hanyang.ac.kr/courses/cse326/2019/lecture/02-html.html"
+                    target="_blank">lecture slides</a> about HTML to see examples of the right tags to use.
+            </p>
+            <hr>
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex1.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide4">
+            <h1>Ex <span class="exercisenumber">2</span>: Courses @ HYU</h1>
+
+            <p>
+                Create a list of courses that you are taking right now at HYU. This part of the page should include the
+                followings:
+            </p>
+
+            <ul>
+                <li>heading: My Courses @ HYU
+                    <ul>
+                        <li>indicate that the abbreviation, HYU, stands for <q>Hanyang University</q></li>
+                    </ul>
+                </li>
+                <li>unordered list in the form of - Course Code: Course Title</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide5">
+            <h1>Ex <span class="exercisenumber noincrement">2</span> example</h1>
+
+            <p>
+                This part of the example page describes courses that Scott teaches. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex2.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide6">
+            <h1>Ex <span class="exercisenumber">3</span>: Favorite Movies</h1>
+
+            <p>
+                Create a list of your 3 favorite movies in <strong>reverse</strong> order. This part of the page should
+                include the followings:
+            </p>
+
+            <ul>
+                <li>make a link to an interesting site about each movie, such as its <a class="popup"
+                        href="http://www.imdb.com/" target="_blank">IMDB</a> page</li>
+                <li>look up the most favorite movie on <a href="http://www.imdb.com/">imdb.com</a> and
+                    reproduce <em>director</em>, <em>genre</em>, and <em>stars</em> information about the film in a
+                    nested list under that movie's bullet.
+                    <ul>
+                        <li>These info is in short topic: → value pairs, such as Genre: Comedy.</li>
+                        <li>Therefore, represent it as an HTML definition list.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide7">
+            <h1>Ex <span class="exercisenumber noincrement">3</span> example</h1>
+
+            <p>
+                This part of the example page describes Scott's 3 favorite movies. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex3a.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide8">
+            <h1>Ex <span class="exercisenumber noincrement">3</span>: Favorite Thing</h1>
+
+            <p>
+                Present images of your 3 favorite things. This part of the page should include the followings:
+            </p>
+
+            <ul>
+                <li>choose your thing, such as cars, drinks, places, people, ...</li>
+                <li>select your 3 favorite things</li>
+                <li>look up images of the 3 things with <a class="popup" href="http://images.google.com/"
+                        target="_blank">Google Images</a></li>
+                <li>add breif description about the things and present them in your page</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide9">
+            <h1>Ex <span class="exercisenumber noincrement">3</span> example</h1>
+
+            <p>
+                This part of the example page describes Scott's 3 favorite cars. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex3b.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide10">
+            <h1>Ex <span class="exercisenumber noincrement">3</span>: Favorite Quote</h1>
+
+            <p>
+                Present your favorite quote. This part of the page should include the followings:
+            </p>
+
+            <ul>
+                <li>choose your favorite quote and present it in your page
+                    <ul>
+                        <li>represent your quote using blockquote</li>
+                        <li>wrap the text with double quotation marks</li>
+                        <li>emphasize the person from whom this quote comes and add a horizontal line in front using
+                            character entity</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide11">
+            <h1>Ex <span class="exercisenumber noincrement">3</span> example</h1>
+
+            <p>
+                This part of the example page describes Scott's favorite quote. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex3c.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide12">
+            <h1>Ex <span class="exercisenumber">4</span>: Fun Facts About Neighbors</h1>
+
+            <p>
+                Create a table that presents fun facts about your neighbors. This part of the page should include the
+                followings:
+            </p>
+
+            <ul>
+                <li>the table with :
+                    <ul>
+                        <li>caption describing the table</li>
+                        <li><em>First Name</em> and <em>Facts</em> as headings</li>
+                        <li>use deleted and inserted texts</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide13">
+            <h1>Ex <span class="exercisenumber noincrement">4</span> example</h1>
+
+            <p>
+                This part of the example page describes fun facts about Scott's SE Lab members. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex4.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide14">
+            <h1>Ex <span class="exercisenumber">5</span>: YouTube Video</h1>
+
+            <p>
+                Embedd a YouTube video that you like.
+            </p>
+
+            <ul>
+                <li>select any YouTube video that you like and embed it in your page
+                    <ul>
+                        <li>use object element of HTML5</li>
+                        <li>chosen video must be playable when embedded</li>
+                        <li>present a short description about the chosen video</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide15">
+            <h1>Ex <span class="exercisenumber noincrement">5</span> example</h1>
+
+            <p>
+                This part of the example page shows a short Youtube video embedded in Scott's "About Me" page. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex5.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide16">
+            <h1>Ex <span class="exercisenumber">6</span>: Additional Content</h1>
+
+            <p>
+                Present an additional content to your page. This part of the page should include the followings:
+            </p>
+
+            <ul>
+                <li>use one of new features in HTML5</li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide17">
+            <h1>Ex <span class="exercisenumber noincrement">6</span> example</h1>
+
+            <p>
+                This part of the example page shows Scott's favorite jazz song embeded in his "About Me" page. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex6.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide18">
+            <h1>Ex <span class="exercisenumber">7</span>: Validation Links</h1>
+
+            <p>
+                Add links on your page to the HTML and CSS Validators, using the URLs below.
+            </p>
+
+            <ul>
+                <li><span class="columnlabel">image:</span> <span
+                        class="url">https://selab.hanyang.ac.kr/images/w3c-html.png</span></li>
+                <li><span class="columnlabel">link URL:</span> <span
+                        class="url">https://validator.w3.org/check/referer</span></li>
+            </ul>
+
+            <ul style="margin-top: 1.5em">
+                <li><span class="columnlabel">image:</span> <span
+                        class="url">https://selab.hanyang.ac.kr/images/w3c-css.png</span></li>
+                <li><span class="columnlabel">link URL:</span> <span
+                        class="url">https://jigsaw.w3.org/css-validator/check/referer</span></li>
+            </ul>
+
+            <p>
+                <em>(These links work only if you view your page on server, not on your computer's hard drive.)</em>
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide19">
+            <h1>Ex <span class="exercisenumber noincrement">7</span> example</h1>
+
+            <p>
+                This part of the example page indicates the validation links in Scott's "About Me" page. <br>
+            </p>
+
+            <hr>
+
+            <p>
+                <img src="./CSE3026 Lab 1_ Basic HTML_files/ex7.png" alt="expected output">
+            </p>
+        </div>
+
+
+
+        <div class="slide" id="slide20">
+            <h1>Exercise <span class="exercisenumber">8</span>: Validate your page</h1>
+
+            <p>Validate the syntax of your HTML code:</p>
+
+            <ol>
+                <li>open <a href="http://validator.w3.org/">http://validator.w3.org</a></li>
+                <li>validate your page by either
+                    <ul>
+                        <li><q>Validate by <span class="hyuBlue">File Upload</span></q> and then browse to your
+                            <code>aboutme.html</code> file</li>
+                        <li><q>Validate by <span class="hyuBlue">Direct Input</span></q> and then copy.paste your code
+                            into the text box</li>
+                    </ul>
+                </li>
+                <li>If there are any errors, fix them all
+                    <ul>
+                        <li>try to get the <span class="validationSuccess">green bar</span> for 0 errors.
+                            <q>Warnings</q> are ok</li>
+                        <li>if you do not understand the error messages, ask TA for help</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+
+
+        <div class="slide" id="slide21">
+            <h1>Exercise <span class="exercisenumber">9</span>: Upload your page</h1>
+
+            <ul>
+                <li>
+                    Use MAMP and upload your page to your Apache root directory
+
+                    <ul>
+                        <li>
+                            Put your files in a folder named <code>lab1</code> within your <code>htdocs</code> folder
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    Check the page by viewing it in the web browser. Its URL should be:
+
+                    <ul>
+                        <li><span class="url">http://localhost/lab1/aboutme.html</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide" id="slide22">
+            <h1>If you finish them all...</h1>
+
+            <p>If you finish all the exercises:</p>
+
+            <ol>
+                <li>you can add any other content you like to your page</li>
+                <li><strong>check the correctness</strong> of your page with a TA if necessary</li>
+                <li>submit your <code>html</code> file to your <code>Git</code> repository under <code>lab01</code>
+                    folder</li>
+            </ol>
+
+            <p><strong>Great work!</strong></p>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
