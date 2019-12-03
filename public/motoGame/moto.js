@@ -1,7 +1,7 @@
 var c = document.createElement("canvas");
 var ctx = c.getContext("2d");
 
-c.width = 720; 
+c.width = 720;
 c.height = 480;
 document.body.appendChild(c);
 
@@ -64,7 +64,7 @@ var Player =  function(){
         ctx.fillStyle = '#000000';
         ctx.font = '24px Arial';
         ctx.textAlign = 'left';
-        ctx.fillText('Score: ' + score, 1, 25)
+        ctx.fillText('Score: ' + Math.round(score), 1, 25)
 
         ctx.save();
         ctx.translate(this.x, this.y - 3);
@@ -86,24 +86,24 @@ function loop(){
 
     speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.01;
     if(speed > 0 && player.rSpeed<5)
-        score += Math.round(speed)
+        score += Math.round(speed)/5
 
     t += 10 * speed;
-    if(score < 300)      ctx.fillStyle = "#19f";
-    else if(score < 600) ctx.fillStyle = "#1Af";
-    else if(score < 900) ctx.fillStyle = "#1Bf";
-    else if(score < 1200)ctx.fillStyle = "#1Cf";
-    else if(score < 1500)ctx.fillStyle = "#1Df";
-    else if(score < 2000)ctx.fillStyle = "#1Ef";
-    else if(score < 2400)ctx.fillStyle = "#1ff";
-    else if(score < 2800)ctx.fillStyle = "#2fd";
-    else if(score < 3200)ctx.fillStyle = "#3fd";
-    else if(score < 3600)ctx.fillStyle = "#4fd";
-    else if(score < 4000)ctx.fillStyle = "#5fd";
-    else if(score < 4500)ctx.fillStyle = "#6ee";
-    else if(score < 5000)ctx.fillStyle = "#7df";
-    else if(score < 6000)ctx.fillStyle = "#6cf";
-    else if(score < 7000)ctx.fillStyle = "#5bf";
+    if(score < 100)      ctx.fillStyle = "#19f";
+    else if(score < 200) ctx.fillStyle = "#1Af";
+    else if(score < 300) ctx.fillStyle = "#1Bf";
+    else if(score < 400)ctx.fillStyle = "#1Cf";
+    else if(score < 500)ctx.fillStyle = "#1Df";
+    else if(score < 600)ctx.fillStyle = "#1Ef";
+    else if(score < 700)ctx.fillStyle = "#1ff";
+    else if(score < 800)ctx.fillStyle = "#2fd";
+    else if(score < 900)ctx.fillStyle = "#3fd";
+    else if(score < 1000)ctx.fillStyle = "#4fd";
+    else if(score < 1200)ctx.fillStyle = "#5fd";
+    else if(score < 1400)ctx.fillStyle = "#6ee";
+    else if(score < 1600)ctx.fillStyle = "#7df";
+    else if(score < 1800)ctx.fillStyle = "#6cf";
+    else if(score < 2000)ctx.fillStyle = "#5bf";
     else                ctx.fillStyle = "#4ac";
     // if(score == 50) alert("!")
     ctx.fillRect(0,0,c.width, c.height);

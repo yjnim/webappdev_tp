@@ -10,7 +10,7 @@ window.onload = function(){
             count = 0;
             var url = "../motoGame/index.html";
             var name = "popup test";
-            var option = "width = 720, height = 480,location = no";
+            var option = "width = 721px, height = 510px,location = no";
             window.open(url, name, option);
             // Swal.fire({
             //     title: '<strong>HTML <u>example</u></strong>',
