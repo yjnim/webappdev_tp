@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 window.onload = function(){
 
     var h1 = document.querySelector('.page1-title h1');
+=======
+$(document).ready(function(){
+    var h1 = document.querySelector('.page1-title > h1');
+>>>>>>> haeseok
     var count = 0;
     h1.addEventListener("click", click_, false);
 
     function click_(){ 
         count = count + 1;
+<<<<<<< HEAD
         if(count == 10){
             count = 0;
             var url = "../motoGame/index.html";
@@ -32,3 +38,14 @@ window.onload = function(){
         }
     }
 }
+=======
+        if(count === 5){
+            count = 0;
+            var url = "/html/moto.html";
+            var name = "popup test";
+            var option = "width = 721, height = 481";
+            window.open(url, name, option);
+        }
+    }
+});
+>>>>>>> haeseok

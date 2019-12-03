@@ -30,7 +30,11 @@ a {
 .Contents-page2 { 
   height: 80vh;
   padding-top: 6vh;
+<<<<<<< HEAD
   width: 80vw !important;
+=======
+  width: 90vh !important;
+>>>>>>> haeseok
   margin: 0 auto;
   animation-name: side-fade-enter;
   animation-duration: 0.7s;
@@ -47,4 +51,8 @@ a {
       padding-left: 0;
       opacity: 1;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> haeseok

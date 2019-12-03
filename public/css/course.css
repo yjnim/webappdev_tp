@@ -19,7 +19,11 @@
 }
 
 .Timetable-part {
+<<<<<<< HEAD
     width: 80vh;
+=======
+    width: 80vw;
+>>>>>>> haeseok
     min-width: 80vh;
     height: 39vh;
     padding: 4vh 10vh 0 10vh;

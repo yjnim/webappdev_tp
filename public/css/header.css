@@ -19,7 +19,11 @@
   }
 
   .Header-menudiv {
+<<<<<<< HEAD
     width: 60vw;
+=======
+    width: 80vh;
+>>>>>>> haeseok
     min-width: 800px;
     float: left;
     margin: 0 auto;
@@ -43,7 +47,11 @@
   }
 
   .menuli:nth-last-child(n+1) {
+<<<<<<< HEAD
       padding-top: 20px;
+=======
+      padding-bottom: 20px;
+>>>>>>> haeseok
   }
 
   .menuli a {
