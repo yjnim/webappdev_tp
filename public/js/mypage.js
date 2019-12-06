@@ -1,14 +1,13 @@
-const FIREBASE_AUTH = firebase.auth();
-const FIREBASE_DATABASE = firebase.database();
-const FIREBASE_MESSAGING = firebase.messaging();
+$(document).ready(function(){
+    const subscribeButton = document.getElementById('subscribe');
+    const unsubscribeButton = document.getElementById('unsubscribe');
+    subscribeButton.addEventListener("click", subscribeToNotifications);
+    unsubscribeButton.addEventListener("click", unsubscribeFromNotifications);
+})
 
-const signOutButton = document.getElementById('sign-out');
-const subscribeButton = document.getElementById('subscribe');
-const unsubscribeButton = document.getElementById('unsubscribe');
 
 var lastMessageData = getLastMessage();
 
-FIREBASE_AUTH.onAuthStateChanged(handleAuthStateChanged);
 FIREBASE_MESSAGING.onTokenRefresh(handleTokenRefresh);
 FIREBASE_MESSAGING.onMessage(async function(payload){
     if (payload){
@@ -52,10 +51,6 @@ FIREBASE_MESSAGING.onMessage(async function(payload){
     }
 });
 
-subscribeButton.addEventListener("click", subscribeToNotifications);
-unsubscribeButton.addEventListener("click", unsubscribeFromNotifications);
-signOutButton.addEventListener("click", signOut);
-
 
 function getLastMessage(){
     let lastMessageData = {};
@@ -76,20 +71,6 @@ function getLastMessage(){
         }
     })
     return lastMessageData;
-}
-
-
-function handleAuthStateChanged(user) {
-    if (!user) {
-        window.location = '/login';
-    } else{
-        checkSubscription();
-    }
-}
-
-
-function signOut() {
-    FIREBASE_AUTH.signOut();
 }
 
 function subscribeToNotifications() {

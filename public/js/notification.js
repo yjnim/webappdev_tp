@@ -1,14 +1,9 @@
+$(document).ready(function(){
+  const sendNotificationForm = document.getElementById('send-notification-form');
+  sendNotificationForm.addEventListener("submit", sendNotification);
+});
 
-const FIREBASE_AUTH = firebase.auth();
-const FIREBASE_MESSAGING = firebase.messaging();
-const FIREBASE_DATABASE = firebase.database();
-
-const sendNotificationForm = document.getElementById('send-notification-form');
 var answerDiv = document.getElementById('answer');
-
-FIREBASE_AUTH.onAuthStateChanged(handleAuthStateChanged);
-
-sendNotificationForm.addEventListener("submit", sendNotification);
 
 FIREBASE_DATABASE.ref('/answers').on('child_added', function(data){
   let answers = data.val();
@@ -17,18 +12,6 @@ FIREBASE_DATABASE.ref('/answers').on('child_added', function(data){
   answerDiv.insertBefore(p, answerDiv.childNodes[0]);
 })
 
-
-
-function handleAuthStateChanged(user) {
-  if (user) {
-    if(user.email !== 'interpret96@gmail.com'){
-      window.location = '/';
-    }
-   
-  } else {
-    window.location = '/';
-  }
-}
 
 function sendNotification(e) {
   e.preventDefault();

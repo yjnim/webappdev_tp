@@ -9,14 +9,23 @@
             <li class="homeli">
             <a href="/" class="App-logo"><img src="../img/selab_logo_S.png" alt="logo"></a>
             </li>
-            <li class="menuli">
-            <a onclick="gopage('/html/login.html')">Login</a>
+            <li class="menuli" id='notice' hidden="true">
+            <a onclick="gopage('/html/notification.html')">Notice</a>
             </li>
-            <li class="menuli">
-            <a onclick="gopage('/html/course/course.html')">Courses</a>
+            <li class="menuli" id='mypage' hidden="true">
+            <a onclick="gopage('/html/mypage.html')">Mypage</a>
             </li>
-            <li class="menuli">
-            <a onclick="gopage('/html/about/selab.html')">About SELab</a>
+            <li class="menuli" id='logout' hidden="true">
+            <a onclick="signOut()">Logout</a>
+            </li>
+            <li class="menuli" id='login'>
+            <a onclick="gopage('/html/login.html')" >Login</a>
+            </li>
+            <li class="menuli" id='courses'>
+            <a onclick="gopage('/html/course/course.html')" >Courses</a>
+            </li>
+            <li class="menuli" id='about'>
+            <a onclick="gopage('/html/about/selab.html')" >About SELab</a>
             </li>
         </ul>
         </div>
