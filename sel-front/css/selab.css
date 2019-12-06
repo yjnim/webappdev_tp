@@ -1,55 +1,66 @@
-
 .Lab-list {
-    min-width: 15vh;
-    padding-right: 30px;
     float: left;
+    width: 100px;
+    margin-top: 3vh;
+    height: auto;
 }
 
-.Lab-list ol {
-    list-style-type: none;
+.Lab-list ul {
+    padding-inline-start: 0;
+    list-style: none;
 }
 
-.Lab-list ol li {
-    margin: 2vh 0;
+.Lab-list ul li {
+    margin: 15px 0;
 }
 
-.Lab-list ol li a {
-    font-size: 2.3vh;
-    display: flex;
-    align-items: center;
+.Lab-List-a {
+    color: rgba(0,0,0,0.4);
+    font-weight: bold;
+    margin-bottom: 3px;
 }
 
-.Lab-list ol li a:hover {
-    font-size: 2.6vh;
-    animation-name: lab-list-hover;
-    animation-duration: 0.4s;
+.Lab-List-a:hover {
+    animation-name: listhover;
+    animation-duration: 300ms;
     animation-direction: alternate;
+    animation-fill-mode: forwards;
+    cursor: pointer;
 }
 
-@keyframes lab-list-hover {
-    from {
-        font-size: 2.3vh;
-    }
-
+@keyframes listhover {
     to {
-        font-size: 2.6vh;
+        color: #fff;
+        border-bottom: 2px solid #FFF;
     }
+}
+
+.Lab-List-a-hover {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 3px;
+    border-bottom: 2px solid #FFF;
+    cursor: pointer;
 }
 
 .Lab-contents {
-    width: 66vh;
-    height: 80vh;
     float: right;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    width: auto;
+    margin-top: 3vh;
 }
 
-.Lab-list-icon {
-    width: 3vh;
-    border: 1px solid #FFF;
-    border-radius: 100%;
-    padding: 4px;
-    margin-right: 10px;
-    fill: #FFF;
+#Lab-Member {
+    display: block;
+}
+
+#Lab-Research {
+    display: none;
+}
+
+#Lab-Publications {
+    display: none;
+}
+
+#Lab-Contact {
+    display: non;
 }

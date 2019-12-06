@@ -4,15 +4,16 @@ body {
   background-image: linear-gradient(to top left, rgba(86,89,218,1) 0%, rgba(0,171,217,1) 90% );
   background-repeat: no-repeat;
   background-size: 100%;
-  overflow: hidden;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 #container {
-  min-width: 100vh;
+  /* min-width: 100vh; */
 }
 
 #mainbg {
-  min-height: 90vh;
+  /* min-height: 90vh; */
   min-width: 80vw;
   padding-top: 10vh;
   font-family: 'Roboto', sans-serif;
@@ -28,7 +29,7 @@ a {
 }
 
 .Contents-page2 { 
-  height: 80vh;
+  /* height: 80vh; */
   padding-top: 6vh;
   width: 90vh !important;
   margin: 0 auto;

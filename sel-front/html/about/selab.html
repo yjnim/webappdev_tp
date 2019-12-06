@@ -1,39 +1,38 @@
 <head>
-		<link rel="stylesheet" type="text/css" href="./../css/selab.css" />
+	<link rel="stylesheet" type="text/css" href="./../css/selab.css" />
+	<script src="./../js/labchangeMenu.js" type="text/javascript"></script>
 </head>
 <body>
-	<div id="mainbg">
-		<div class="Contents-page2">
-			
-			<div class="Lab-list">
-				<ol>
-					<li>
-						<a href="/About/Selab/">
-							<img src="./../img/member.svg" class="Lab-list-icon" alt="member icon"></img>
-							Members
-						</a>
-					</li>
-					<li>
-						<a href="/About/Selab/Research">
-							<img src="./../img/research.svg" class="Lab-list-icon"  alt="research icon"></img>
-							Research
-						</a>
-					</li>
-					<li>
-						<a href="/About/Selab/Publications">
-							<img src="./../img/publication.svg" class="Lab-list-icon" alt="publication icon"></img>
-							Publications
-						</a>
-					</li>
-					<li>
-						<a href="/About/Selab/Contact">
-							<img src="./../img/contact.svg" class="Lab-list-icon" alt="contact icon"></img>
-							Contact
-						</a>
-					</li>
-				</ol>
+	<div class="Contents-page2">
+		<div class="Lab-list">
+			<ul>
+				<li><a class="Lab-List-a" onclick="changeLabinfo('members')" id="List-Member">Members</a></li>
+				<li><a class="Lab-List-a" onclick="changeLabinfo('research')" id="List-Research">Research</a></li>
+				<li><a class="Lab-List-a" onclick="changeLabinfo('publications')" id="List-Publications">Publications</a></li>
+				<li><a class="Lab-List-a" onclick="changeLabinfo('contact')" id="List-Contact">Contact</a></li>
+			</ul>
+		</div>
+		<div class="Lab-contents">
+
+			<!-- Member -->
+			<div id="Lab-Member">
+				Member
 			</div>
-			<div class="Lab-contents"></div>
+
+			<!-- Research -->
+			<div id="Lab-Research">
+				Research
+			</div>
+
+			<!-- Publications -->
+			<div id="Lab-Publications">
+				Publications
+			</div>
+
+			<!-- Contact -->
+			<div id="Lab-Contact">
+				Contact
+			</div>
 		</div>
 	</div>
 </body>
