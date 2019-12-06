@@ -1,7 +1,5 @@
-$(document).ready(function(){
-  const sendNotificationForm = document.getElementById('send-notification-form');
-  sendNotificationForm.addEventListener("submit", sendNotification);
-});
+const sendNotificationForm = document.getElementById('send-notification-form');
+sendNotificationForm.addEventListener("submit", sendNotification);
 
 var answerDiv = document.getElementById('answer');
 

@@ -16,10 +16,10 @@ exports.sendNotifications = functions.database.ref('/notifications/{notification
     const NOTIFICATION_SNAPSHOT = change.after;
     const payload = {
         notification: {
-            title: `${NOTIFICATION_SNAPSHOT.val().user}님의 새로운 메세지`,
+            title: `${NOTIFICATION_SNAPSHOT.val().user}님의 새로운 알림`,
             body: NOTIFICATION_SNAPSHOT.val().message,
             icon: NOTIFICATION_SNAPSHOT.val().userProfileImg,
-            click_action: "https://webappdev-1a951.firebaseapp.com/html/mypage.html"
+            click_action: "https://webappdev-1a951.firebaseapp.com/"
         }
     }
 
