@@ -41,6 +41,7 @@
 
 .lecture-info {
     display: none;
+    min-height: 100vh;
 }
 
 .lecture-menu button:focus {
@@ -90,3 +91,29 @@
     margin: 0.5vh 1vh;
 }
 
+.info-title {
+    font-size: 1.2em;
+  }
+
+details ul li, ol li {
+    font-size: 0.8em;
+}
+
+details p {
+    font-size: 0.9em;
+}
+
+details {
+    margin-top: 40px;
+}
+
+details fieldset {
+    margin: 10px 30px;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+}
+
+.Assist-ul {
+    width: 300px;
+    float: left;
+}

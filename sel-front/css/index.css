@@ -4,9 +4,9 @@ body {
   background-image: linear-gradient(to top left, rgba(86,89,218,1) 0%, rgba(0,171,217,1) 90% );
   background-repeat: no-repeat;
   background-size: 100%;
-  margin: 0;
-  overflow-x: hidden;
-  -ms-overflow-style: none;
+  margin: auto 0;
+  height: calc(100%);
+  margin-bottom: 0;
 }
 
 body::-webkit-scrollbar {
@@ -30,18 +30,19 @@ a {
 }
 
 #container {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .Contents-page2 { 
   /* height: 80vh; */
   padding-top: 6vh;
   width: 90vh !important;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   animation-name: side-fade-enter;
   animation-duration: 0.7s;
   font-family: 'Roboto Condensed', sans-serif;
   color: #FFF;
+  box-sizing: content-box;
 }
 
 @keyframes side-fade-enter {
