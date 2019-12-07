@@ -41,17 +41,11 @@ var jumpSlide = function() {
 var printView = function() {
     var length = lengthCheck();
     var list = $('.slide');
-
-    for (var i=0; i<length+1; i++) {
-        list[i].style.all = "initial";
-        list[i].innerHTML += '<hr>';
-    }
-
     var layout = $('.layout');
     layout[0].innerHTML = "";
 
     var el = $("link");
-    el[0].href = '';
+    el[0].href = '../../../css/print.css';
 
     var offset = $("#slide0").offset();
         $('html, body').animate({scrollTop : offset.top}, 0);
@@ -103,6 +97,18 @@ $(document).keydown(function(event) {
     } else if (event.keyCode === 37 || event.keyCode === 38) {
         moveSlide(-1);
     }
+});
+
+
+$(function(){
+    $(document).on('mousewheel DOMMouseScroll', function(e) {
+        var E = e.originalEvent;
+        if (E.deltaY > 0) {
+            moveSlide(1);
+        } else if (E.deltaY < 0) {
+            moveSlide(-1)
+        }
+    });
 });
 
 // ===================================================
