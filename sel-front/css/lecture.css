@@ -27,6 +27,7 @@
 .lecture-menu div hr {
     width: 90vh;
     border: 3px solid #FFF;
+    background: #fff;
     clear: both;
 }
 

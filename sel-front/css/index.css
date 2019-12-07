@@ -6,6 +6,11 @@ body {
   background-size: 100%;
   margin: 0;
   overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display:none;
 }
 
 #container {
