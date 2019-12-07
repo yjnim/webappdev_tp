@@ -1,55 +1,207 @@
-
 .Lab-list {
-    min-width: 15vh;
-    padding-right: 30px;
+    height: 100px;
+    margin-top: 5vh;
+    height: auto;
+}
+
+.Lab-list ul {
+    padding-inline-start: 0;
+    list-style: none;
+}
+
+.Lab-list ul li {
+    margin: 0 15px;
     float: left;
 }
 
-.Lab-list ol {
-    list-style-type: none;
+.Lab-List-a {
+    color: rgba(0,0,0,0.4);
+    font-weight: bold;
+    margin-bottom: 3px;
 }
 
-.Lab-list ol li {
-    margin: 2vh 0;
-}
-
-.Lab-list ol li a {
-    font-size: 2.3vh;
-    display: flex;
-    align-items: center;
-}
-
-.Lab-list ol li a:hover {
-    font-size: 2.6vh;
-    animation-name: lab-list-hover;
-    animation-duration: 0.4s;
+.Lab-List-a:hover {
+    animation-name: listhover;
+    animation-duration: 300ms;
     animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
 }
 
-@keyframes lab-list-hover {
-    from {
-        font-size: 2.3vh;
-    }
-
+@keyframes listhover {
     to {
-        font-size: 2.6vh;
+        color: #fff;
+        background-color: rgba(0,0,0,0.6);
     }
+}
+
+.Lab-List-a-hover {
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.6);
 }
 
 .Lab-contents {
-    width: 66vh;
-    height: 80vh;
-    float: right;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    float: left;
+    margin-left: 2vh;
+    width: auto;
+    margin-top: 4vh;
 }
 
-.Lab-list-icon {
-    width: 3vh;
-    border: 1px solid #FFF;
+#Lab-Member {
+    display: block;
+}
+
+#Lab-Research {
+    display: none;
+}
+
+#Lab-Publications {
+    display: none;
+}
+
+#Lab-Contact {
+    display: non;
+}
+
+.Lab-title {
+    margin: 0;
+}
+
+.Lab-hr {
+    width: 30px;
+    border: 2px solid #000000;
+    background: #000;
+}
+
+#Lab-Member h3 {
+    margin: 5vh 0 0 0;
+}
+
+.Member-div {
+    width: 700px;
+    margin: 2vh 0vh 2vh 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 60px;
+}
+
+.Member-img {
+    width: 130px;
+    height: 130px;
+    margin: auto 0;
+    object-fit: cover;
     border-radius: 100%;
-    padding: 4px;
-    margin-right: 10px;
-    fill: #FFF;
+    position: relative;
+    right: 60px;
+}
+
+.Member-contents1 {
+    width: 550px;
+}
+
+.Member-contents2 {
+    width: 250px;
+    height: 70px;
+    position: relative;
+    top: 43px;
+}
+
+.Member-contents1 ul, .Member-contents2 ul {
+    list-style-type: none;
+    list-style-position: inside;
+    position: relative;
+    right: 60px;
+}
+
+.Member-name {
+    font-size: 1.3em;
+    margin-bottom: 2vh;
+}
+
+.Member-career p {
+    margin: 0 0 3px 0;
+    font-size: 1.3vh;
+}
+
+small {
+    font-size: 1.2vh;
+    color: rgba(255,255,255,0.5)
+}
+
+.Member-icon {
+    width: 15px;
+    float: left;
+    margin-right: 4px;
+}
+
+.Member-contents2 ul li p {
+    margin: 4px 0;
+    font-size: 0.8em;
+}
+
+#Lab-Research h3 {
+    margin: 5vh 0 2vh 0;
+}
+
+.Research-div {
+    width: 800px;
+    height: 100px;
+    margin-bottom: 3vh;
+    padding-left: 2vh;
+}
+
+.Research-img {
+    width: 200px;
+    height: 100px;
+    object-fit: fill;
+    float: left;
+    margin-right: 60px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.Research-div ul {
+    list-style: square;
+}
+
+.Research-div ul li {
+    font-size: 0.9em;
+}
+
+.Publications-div {
+    width: 800px;
+    margin-top: 40px;
+}
+
+.Publications-title {
+    display: inline;
+}
+
+#Contact-map {
+    width: 350px;
+    float: left;
+}
+
+#Contact-content {
+    width: 350px;
+    float: right;
+    padding-top: 20px;
+}
+
+#Contact-content ul {
+    list-style: square;
+}
+
+#Contact-content ul li p{
+    margin: 0 0 3px 0;
+}
+
+#Contact-content ul li  {
+    margin: 10px 0 0 0;
 }

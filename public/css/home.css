@@ -44,7 +44,6 @@
     animation-duration: 0.5s;
     animation-name: titleh1;
     animation-fill-mode: forwards;
-    user-select: none;
   }
   
   @keyframes titleh1 {
