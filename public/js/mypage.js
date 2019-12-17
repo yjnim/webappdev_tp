@@ -16,7 +16,7 @@ FIREBASE_MESSAGING.onMessage(async function(payload){
         if (lastMessageData.lastMessage){
             
             const { value: formValues } = await Swal.fire({
-                title: '알림',
+                title: 'Notification',
                 html:
                 `<h3>${lastMessageData.lastMessage}</h3>` + 
                 '<input id="popup_input" class="popup_input">',
@@ -32,7 +32,7 @@ FIREBASE_MESSAGING.onMessage(async function(payload){
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: '답변이 제출되었습니다',
+                    title: 'Your answer has been submitted.',
                     showConfirmButton: false,
                     timer: 1500
                   })
