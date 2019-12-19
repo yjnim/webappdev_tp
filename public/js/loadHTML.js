@@ -46,10 +46,10 @@ FIREBASE_MESSAGING.onMessage(async function(payload){
       if (lastMessageData.lastMessage){
           
           const { value: formValues } = await Swal.fire({
-              title: '알림',
+              title: 'Notification',
               html:
               `<h3>${lastMessageData.lastMessage}</h3>` + 
-              '<textarea id="popup_input" class="popup_input" style="width: 300px; height: 150px;"></textarea>',
+              '<input id="popup_input" class="popup_input">',
               focusConfirm: false,
               preConfirm: () => {
                 return [

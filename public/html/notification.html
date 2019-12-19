@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/notification.css" />
   </head>
   <body>
-    <div class="wrapper" style="margin: auto;">
+   <!--  <div class="wrapper" style="margin: auto;">
       <main >
         <header>
           <h1>알림 콘솔</h1>
@@ -15,7 +16,29 @@
           <button type="submit" aria-label="Send">보내기</button>
         </form>
       </main>
+    </div> -->
+
+    <div class="Contents-page2">
+      <h1>Notification Console</h1>
+      <div class="notification-div">
+          <form id="send-notification-form">
+              <textarea id="notification-message" placeholder="Input notification message."></textarea>
+              <button type="submit" aria-label="Send" id="notification-send">Send</button>
+          </form>
+      </div>
+      <div class="answer-div">
+          <h1>Answers</h1>
+          <div id="answer">
+              <div class="a-answer">
+                  <p class="answer-name">Yunji Jang</p>
+                  <p class="answer-contents">답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변</p>
+              </div>
+  
+          </div>
+      </div>
     </div>
+
+
     <div id="answer"></div>
     <script src="/js/notification.js"></script>
   </body>
