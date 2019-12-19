@@ -49,7 +49,7 @@ FIREBASE_MESSAGING.onMessage(async function(payload){
               title: 'Notification',
               html:
               `<h3>${lastMessageData.lastMessage}</h3>` + 
-              '<input id="popup_input" class="popup_input">',
+              '<textarea id="popup_input" class="popup_input" cols="30" rows="10">답변을 입력해주세요</textarea>',
               focusConfirm: false,
               preConfirm: () => {
                 return [
